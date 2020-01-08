@@ -1,0 +1,55 @@
+.page-separator {
+  position: relative;
+  color: $secondary;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  z-index: 0;
+  margin-bottom: 1rem;
+  &::before {
+    content: '';
+    height: 1px;
+    background-color: rgba(0, 0, 0, .1);
+    width: 100%;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  &__text {
+    display: inline-flex;
+    padding: 0 .5rem;
+    border-radius: $border-radius;
+    background-color: $body-bg;
+    max-width: 90%;
+    text-transform: uppercase;
+    font-size: .9375rem;
+    color: rgba($body-color, .5);
+    font-weight: $headings-font-weight;
+    letter-spacing: 2px;
+    font-family: $headings-font-family;
+    @include hover {
+      text-decoration: none;
+    }
+  }
+  &__bg-bottom {
+    content: '';
+    height: 50%;
+    background-color: $body-bg;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    z-index: -2;
+  }
+  &__bg-top {
+    content: '';
+    height: 50%;
+    background-color: $body-bg;
+    width: 100%;
+    bottom: 50%;
+    left: 0;
+    position: absolute;
+    z-index: -2;
+  }
+}

@@ -1,0 +1,3 @@
+.tooltip-inner {
+  @include mdc-elevation(1, $shadow-baseline-color, $shadow-opacity-boost);
+}

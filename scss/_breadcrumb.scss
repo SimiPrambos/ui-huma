@@ -1,0 +1,13 @@
+////////////////
+// Breadcrumb //
+////////////////
+
+.breadcrumb {
+  font-size: $breadcrumb-font-size;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 1.5rem;
+  color: rgba($body-color, .5);
+  text-transform: uppercase;
+  font-weight: 500;
+}

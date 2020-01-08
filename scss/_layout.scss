@@ -1,0 +1,31 @@
+.container,
+.container-fluid {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+@include media-breakpoint-down(sm) {
+  .has-drawer-opened .mdk-header-layout__content {
+    z-index: 2;
+  }
+}
+
+.mdk-header-layout {
+  overflow: visible; // fix children with position: sticky;
+}
+.mdk-drawer-layout .container {
+  @include make-container-max-widths($drawer-layout-container-max-widths);
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+.mdk-header-layout,
+.mdk-drawer-layout,
+.mdk-drawer-layout__content {
+  height: initial;
+  min-height: 100%;
+}
+

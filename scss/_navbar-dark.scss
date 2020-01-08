@@ -1,0 +1,9 @@
+.navbar-dark {
+  .navbar-border {
+    border-color: $navbar-dark-toggler-border-color !important;
+  }
+
+  .badge-notifications {
+    border: 1px solid $dark;
+  }
+}

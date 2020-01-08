@@ -1,0 +1,25 @@
+/////////////
+// GENERAL //
+/////////////
+
+.mdk-box__bg-front {
+  background-position: center;
+  &::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.mdk-box--bg-dark .mdk-box__bg-front::after {
+  background-color: rgba($dark, .9);
+}
+
+.mdk-box--bg-gradient-primary .mdk-box__bg-front::after {
+  background-image: $primary-gradient;
+  opacity: .9;
+}

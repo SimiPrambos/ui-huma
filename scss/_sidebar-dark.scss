@@ -1,0 +1,26 @@
+.sidebar-dark .sidebar-submenu {
+  .sidebar-menu-text {
+    border-left: 1px solid $ssm-dark-item-border-color;
+  }
+}
+
+.sidebar-dark .sidebar-account {
+  background: white;
+}
+
+.sidebar-dark .navbar-toggler {
+  color: $sm-dark-icon-color;
+
+  @include hover {
+    color: $sm-dark-hover-icon-color;
+  }
+}
+
+.sidebar-dark {
+  .text-100 {
+    color: $sidebar-dark-text-color;
+  }
+  .text-50 {
+    color: rgba($sidebar-dark-text-color, .5) !important;
+  }
+}
