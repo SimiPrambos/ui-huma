@@ -1,7 +1,3 @@
-.page__subnav {
-  @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
-}
-
 .layout-sticky-subnav {
   .mdk-header-layout {
     overflow: initial;

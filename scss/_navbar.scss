@@ -8,11 +8,18 @@
   padding-bottom: 0;
 }
 .navbar-shadow {
-  @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+  @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
 }
-.top-navbar {
-  top: $navbar-height;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .top#{$infix}-navbar {
+      top: $navbar-height;
+    }
+  }
 }
+
 .navbar-height {
   min-height: $navbar-height;
 }

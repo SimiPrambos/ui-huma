@@ -85,24 +85,29 @@ export default {
               value: 'compact',
               options: [
                 {
-                  text: 'Compact Vertical',
-                  image: 'assets/images/navigation-mini.png',
+                  text: 'Compact Layout',
+                  image: 'assets/images/compact-layout.png',
                   value: 'compact',
                   selected: true
                 },
                 {
-                  text: 'Mini Vertical',
-                  image: 'assets/images/navigation-mini.png',
+                  text: 'Mini Layout',
+                  image: 'assets/images/mini-layout.png',
                   value: 'mini'
                 },
                 {
-                  text: 'App Vertical',
+                  text: 'App Layout',
                   value: 'app',
-                  image: 'assets/images/navigation-side.png'
+                  image: 'assets/images/app-layout.png'
+                },
+                {
+                  text: 'Sticky Layout',
+                  value: 'sticky',
+                  image: 'assets/images/sticky-layout.png'
                 },
                 {
                   text: 'Fixed',
-                  image: 'assets/images/navigation-top.png',
+                  image: 'assets/images/fixed-layout.png',
                   value: 'default'
                 }
               ]
@@ -274,6 +279,9 @@ export default {
         'theme.theme': {
           'light': {
             'mainNavbar.navbar': function() {
+              if (this.settings['layout.layout'] === 'sticky') {
+                return 'dark'
+              }
               if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
                 return 'transparent'
               }
@@ -428,6 +436,9 @@ export default {
           },
           'light-red': {
             'mainNavbar.navbar': function() {
+              if (this.settings['layout.layout'] === 'sticky') {
+                return 'black'
+              }
               if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
                 return 'transparent'
               }
@@ -582,6 +593,9 @@ export default {
           },
           'light-yellow': {
             'mainNavbar.navbar': function() {
+              if (this.settings['layout.layout'] === 'sticky') {
+                return 'dark-blue'
+              }
               if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
                 return 'transparent'
               }
@@ -734,6 +748,9 @@ export default {
           },
           'light-purple': {
             'mainNavbar.navbar': function() {
+              if (this.settings['layout.layout'] === 'sticky') {
+                return 'dark-purple'
+              }
               if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
                 return 'transparent'
               }
@@ -1200,7 +1217,7 @@ export default {
           },
           'dark-purple': {
             'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'default') {
+              if (['default'].includes(this.settings['layout.layout'])) {
                 return 'dark-purple'
               }
               if (!['transparent', 'light'].includes(this.settings['mainNavbar.navbar'])) {
@@ -1355,7 +1372,7 @@ export default {
           },
           'dark-blue': {
             'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'default') {
+              if (['default'].includes(this.settings['layout.layout'])) {
                 return 'dark-blue'
               }
               if (!['transparent', 'light'].includes(this.settings['mainNavbar.navbar'])) {
@@ -1514,9 +1531,12 @@ export default {
             '#default-navbar .navbar-brand img': {
               src: navbarTransparentLogo,
             },
+            '.layout-default #default-navbar': {
+              addClass: ['border-bottom-2']
+            },
             '#default-navbar': {
-              addClass: ['navbar-light', 'bg-white', 'border-bottom-2'],
-              removeClass: ['navbar-dark', 'bg-dark', 'bg-body', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black']
+              addClass: ['navbar-light', 'bg-white'],
+              removeClass: ['navbar-dark', 'bg-dark', 'bg-body', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple']
             },
             '#default-navbar [data-toggle=modal]': {
               addClass: ['btn-light'],
@@ -1543,9 +1563,12 @@ export default {
             '#default-navbar .navbar-brand img': {
               src: navbarTransparentLogo,
             },
+            '.layout-default #default-navbar': {
+              addClass: ['border-bottom-2']
+            },
             '#default-navbar': {
-              addClass: ['navbar-light', 'bg-body', 'border-bottom-2'],
-              removeClass: ['navbar-dark', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black']
+              addClass: ['navbar-light', 'bg-body'],
+              removeClass: ['navbar-dark', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple']
             },
             '#default-navbar [data-toggle=modal]': {
               addClass: ['btn-light'],
