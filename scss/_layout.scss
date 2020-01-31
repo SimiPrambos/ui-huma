@@ -13,7 +13,8 @@
 .mdk-header-layout {
   overflow: visible; // fix children with position: sticky;
 }
-.mdk-drawer-layout .container {
+.mdk-drawer-layout .container,
+.mdk-drawer-layout .container-fluid {
   @include make-container-max-widths($drawer-layout-container-max-widths);
 }
 

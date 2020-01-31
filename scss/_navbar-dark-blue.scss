@@ -1,7 +1,11 @@
 .navbar-dark-blue {
   background: $dark-blue;
 
-  .search-form--black {
+  .navbar-text-50 { color: rgba($white, .5); }
+  .navbar-text-70 { color: rgba($white, .7); }
+  .navbar-text-100 { color: $white; }
+
+  .navbar-search {
     background-color: $sm-dark-blue-open-bg;
     border-color: $sm-dark-blue-open-bg;
     .form-control {
@@ -19,7 +23,7 @@
     }
   }
 
-  .btn-black {
+  .navbar-btn {
     @include button-variant($sm-dark-blue-open-bg, $sm-dark-blue-open-bg);
   }
 

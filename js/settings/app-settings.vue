@@ -7,8 +7,8 @@
       namespace="huma-v1.0.0" 
       :options="computedOptions" 
       :drawer-align="localDrawerAlign"
-      :sidebar-type="sidebarType"
-      :sidebar-variant="sidebarVariant"></fm-app-settings-drawer> 
+      :sidebar-type="localSidebarType"
+      :sidebar-variant="localSidebarVariant"></fm-app-settings-drawer> 
   </div>
 </template>
 
@@ -57,6 +57,14 @@ export default {
     return {
       settings: {},
       overrides: {}
+    }
+  },
+  computed: {
+    localSidebarType() {
+      return !!this.settings['theme.darkMode'] ? 'dark' : 'light'
+    },
+    localSidebarVariant() {
+      return !!this.settings['theme.darkMode'] ? 'bg-dark' : 'bg-body'
     }
   },
   created() {
@@ -175,6 +183,11 @@ export default {
             if (element.setAttribute) {
               element.setAttribute.forEach(({name, value}) => {
                 node.setAttribute(name, value)
+              })
+            }
+            if (element.removeAttribute) {
+              element.removeAttribute.forEach(name => {
+                node.removeAttribute(name)
               })
             }
           })

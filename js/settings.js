@@ -11,6 +11,10 @@ const colors = {
     success: '#66BB6A',
     purple: '#824EE1'
   },
+  darkMode: {
+    border: '#19191A',
+    bodyBg: '#1D2126'
+  },
   gray: {
     300: '#E3EBF6',
     600: '#95AAC9',

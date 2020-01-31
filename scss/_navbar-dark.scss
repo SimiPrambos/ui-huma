@@ -6,4 +6,16 @@
   .badge-notifications {
     border: 1px solid $dark;
   }
+
+  .navbar-text-50 { color: rgba($white, .5); }
+  .navbar-text-70 { color: rgba($white, .7); }
+  .navbar-text-100 { color: $white; }
+
+  .navbar-btn {
+    @extend .btn-black;
+  }
+
+  .navbar-search {
+    @extend .search-form--black;
+  }
 }

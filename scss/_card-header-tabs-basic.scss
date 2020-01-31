@@ -11,11 +11,11 @@
     font-weight: 600;
     &:hover {
       text-decoration: none;
-      color: rgba(17,43,74,.84);
+      color: rgba($body-color, .84);
     }
   }
   .active {
-    color: rgba(17,43,74,.84);
+    color: $body-color;
     border-bottom: 2px solid $primary;
   }
 }

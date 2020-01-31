@@ -37,37 +37,58 @@ export default {
                   text: 'Light Teal',
                   image: 'assets/images/theme-light-teal.png',
                   value: 'light',
-                  selected: true
+                  selected: true,
+                  disabled: !!this.settings['theme.darkMode']
                 },
                 {
                   text: 'Dark Blue',
                   image: 'assets/images/theme-dark-blue.png',
-                  value: 'dark-blue'
+                  value: 'dark-blue',
+                  disabled: !!this.settings['theme.darkMode']
                 },
                 {
                   text: 'Light Yellow',
                   image: 'assets/images/theme-light-yellow.png',
-                  value: 'light-yellow'
+                  value: 'light-yellow',
+                  disabled: !!this.settings['theme.darkMode']
                 },
                 {
                   text: 'Dark Purple',
                   image: 'assets/images/theme-dark-purple.png',
-                  value: 'dark-purple'
+                  value: 'dark-purple',
+                  disabled: !!this.settings['theme.darkMode']
                 },
                 {
                   text: 'Light Purple',
                   image: 'assets/images/theme-light-purple.png',
-                  value: 'light-purple'
+                  value: 'light-purple',
+                  disabled: !!this.settings['theme.darkMode']
                 },
                 {
                   text: 'Black',
                   image: 'assets/images/theme-black.png',
-                  value: 'black'
+                  value: 'black',
+                  disabled: !!this.settings['theme.darkMode']
                 },
                 {
                   text: 'Light Red',
                   image: 'assets/images/theme-light-red.png',
-                  value: 'light-red'
+                  value: 'light-red',
+                  disabled: !!this.settings['theme.darkMode']
+                }
+              ]
+            },
+            {
+              id: 'darkMode',
+              title: 'Dark Mode',
+              component: 'custom-checkbox-toggle',
+              options: [
+                {
+                  value: true
+                },
+                {
+                  value: false,
+                  selected: true
                 }
               ]
             }
@@ -159,6 +180,13 @@ export default {
           title: 'Main Drawer',
           children: [
             {
+              id: 'theme',
+              options: [
+                { value: 'light' },
+                { value: 'dark' }
+              ]
+            },
+            {
               id: 'align',
               title: 'Align',
               component: 'b-form-radio-group',
@@ -172,6 +200,19 @@ export default {
                   text: 'End',
                   value: 'end'
                 }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'messagesDrawer',
+          title: 'Messages Drawer',
+          children: [
+            {
+              id: 'theme',
+              options: [
+                { value: 'light' },
+                { value: 'dark' }
               ]
             }
           ]
@@ -261,6 +302,30 @@ export default {
               this.mdkDrawerLayout._resetLayout()
             }))
         },
+        'theme.darkMode': function(darkMode) {
+          document.querySelector('html').classList[darkMode ? 'add' : 'remove']('dark-mode')
+
+          if (darkMode && this.settings['theme.theme'] !== 'dark') {
+            this.settings['theme.theme'] = 'dark'
+          }
+
+          if (darkMode) {
+            this.applyElements({
+              '.chart-canvas': {
+                setAttribute: [
+                  { 'name': 'data-chart-dark-mode', 'value': '1' }
+                ]
+              }
+            })
+          }
+          else {
+            this.applyElements({
+              '.chart-canvas': {
+                removeAttribute: [ 'data-chart-dark-mode' ]
+              }
+            })
+          }
+        },
         'mainDrawer.align': function(align) {
           this.try(document.querySelector('#default-drawer'), function() {
             this.mdkDrawer.align = align
@@ -276,16 +341,22 @@ export default {
           })
           document.querySelector('body').classList.add(`headings-family-${headingsFontFamily}`)
         },
-        'theme.theme': {
+        'messagesDrawer.theme': {
           'light': {
-            'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'sticky') {
-                return 'dark'
-              }
-              if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
+            '#messages-drawer .sidebar': {
+              addClass: ['sidebar-light'],
+              removeClass: ['sidebar-dark', 'bg-dark']
+            }
+          },
+          'dark': {
+            '#messages-drawer .sidebar': {
+              addClass: ['sidebar-dark', 'bg-dark'],
+              removeClass: ['sidebar-light']
+            }
+          }
+        },
+        'mainDrawer.theme': {
+          'light': {
             '#default-drawer .sidebar-brand-icon': {
               src: 'assets/images/logo/accent-teal-100@2x.png',
             },
@@ -296,6 +367,112 @@ export default {
             '#default-drawer .search-form': {
               addClass: ['search-form--light'],
               removeClass: ['search-form--black']
+            }
+          },
+          'light-red': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/accent-red-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-light', 'sidebar-light-red'],
+              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-yellow', 'sidebar-light-purple']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--light'],
+              removeClass: ['search-form--black']
+            }
+          },
+          'light-yellow': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/accent-yellow-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-light', 'sidebar-light-yellow'],
+              removeClass: ['sidebar-dark', 'bg-dark', 'bg-dark-blue', 'bg-dark-purple', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-red', 'sidebar-light-purple']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--light'],
+              removeClass: ['search-form--black']
+            }
+          },
+          'light-purple': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/purple-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-light', 'sidebar-light-purple'],
+              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-yellow', 'sidebar-light-red']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--light'],
+              removeClass: ['search-form--black']
+            }
+          },
+          'dark': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/accent-teal-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-dark', 'bg-dark'],
+              removeClass: ['sidebar-light', 'sidebar-light-red', 'sidebar-light-yellow', 'sidebar-light-purple', 'bg-white', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--black'],
+              removeClass: ['search-form--light']
+            }
+          },
+          'black': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/accent-red-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-black'],
+              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-dark-purple', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'bg-white', 'bg-dark']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--black'],
+              removeClass: ['search-form--light']
+            }
+          },
+          'dark-purple': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/white-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-dark-purple'],
+              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'bg-white', 'bg-dark']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--black'],
+              removeClass: ['search-form--light']
+            }
+          },
+          'dark-blue': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/accent-yellow-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-dark-blue'],
+              removeClass: ['sidebar-dark', 'sidebar-dark-purple', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'bg-white', 'bg-dark']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--black'],
+              removeClass: ['search-form--light']
+            }
+          }
+        },
+        'theme.theme': {
+          'light': {
+            'mainNavbar.navbar': function() {
+              if (this.settings['layout.layout'] === 'sticky') {
+                return 'dark'
+              }
+              if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
+                return 'transparent'
+              }
+            },
+            'mainDrawer.theme': function() {
+              return !!this.settings['theme.darkMode'] ? 'dark' : 'light'
             },
             '.bg-dark-blue': {
               addClass: ['bg-dark'],
@@ -443,16 +620,8 @@ export default {
                 return 'transparent'
               }
             },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/accent-red-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-light', 'sidebar-light-red'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-yellow', 'sidebar-light-purple']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--light'],
-              removeClass: ['search-form--black']
+            'mainDrawer.theme': function() {
+              return !!this.settings['theme.darkMode'] ? 'black' : 'light-red'
             },
             '.bg-dark-blue': {
               addClass: ['bg-dark'],
@@ -600,16 +769,8 @@ export default {
                 return 'transparent'
               }
             },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/accent-yellow-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-light', 'sidebar-light-yellow'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'bg-dark-blue', 'bg-dark-purple', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-red', 'sidebar-light-purple']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--light'],
-              removeClass: ['search-form--black']
+            'mainDrawer.theme': function() {
+              return !!this.settings['theme.darkMode'] ? 'dark-blue' : 'light-yellow'
             },
             '.bg-dark': {
               addClass: ['bg-dark-blue'],
@@ -755,16 +916,8 @@ export default {
                 return 'transparent'
               }
             },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/purple-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-light', 'sidebar-light-purple'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-yellow', 'sidebar-light-red']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--light'],
-              removeClass: ['search-form--black']
+            'mainDrawer.theme': function() {
+              return !!this.settings['theme.darkMode'] ? 'dark-purple' : 'light-purple'
             },
             '.bg-dark-blue': {
               addClass: ['bg-dark'],
@@ -903,6 +1056,9 @@ export default {
           },
           'dark': {
             'mainNavbar.navbar': function() {
+              if (!!this.settings['theme.darkMode']) {
+                return 'dark-mode'
+              }
               if (this.settings['layout.layout'] === 'default') {
                 return 'dark'
               }
@@ -910,16 +1066,8 @@ export default {
                 return 'transparent'
               }
             },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/accent-teal-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-dark', 'bg-dark'],
-              removeClass: ['sidebar-light', 'sidebar-light-red', 'sidebar-light-yellow', 'sidebar-light-purple', 'bg-white', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
+            'mainDrawer.theme': function() {
+              return 'dark'
             },
             '.bg-dark-blue': {
               addClass: ['bg-dark'],
@@ -1067,16 +1215,8 @@ export default {
                 return 'transparent'
               }
             },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/accent-red-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-black'],
-              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-dark-purple', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'bg-white', 'bg-dark']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
+            'mainDrawer.theme': function() {
+              return 'black'
             },
             '.bg-dark-blue': {
               addClass: ['bg-dark'],
@@ -1224,16 +1364,8 @@ export default {
                 return 'transparent'
               }
             },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/white-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-dark-purple'],
-              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'bg-white', 'bg-dark']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
+            'mainDrawer.theme': function() {
+              return 'dark-purple'
             },
             '.bg-dark': {
               addClass: ['bg-dark-purple'],
@@ -1379,6 +1511,9 @@ export default {
                 return 'transparent'
               }
             },
+            'mainDrawer.theme': function() {
+              return 'dark-blue'
+            },
             '.bg-dark': {
               addClass: ['bg-dark-blue'],
               removeClass: ['bg-dark']
@@ -1386,17 +1521,6 @@ export default {
             '.bg-dark-purple': {
               addClass: ['bg-dark-blue'],
               removeClass: ['bg-dark-purple']
-            },
-            '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/accent-yellow-100@2x.png',
-            },
-            '#default-drawer .sidebar': {
-              addClass: ['sidebar-dark-blue'],
-              removeClass: ['sidebar-dark', 'sidebar-dark-purple', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'bg-white', 'bg-dark']
-            },
-            '#default-drawer .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
             },
             '.js-update-chart-line': {
               setAttribute: [
@@ -1538,25 +1662,9 @@ export default {
               addClass: ['navbar-light', 'bg-white'],
               removeClass: ['navbar-dark', 'bg-dark', 'bg-body', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple']
             },
-            '#default-navbar [data-toggle=modal]': {
-              addClass: ['btn-light'],
-              removeClass: ['btn-black']
-            },
-            '#default-navbar .text-white-100': {
-              addClass: ['text-black-100'],
-              removeClass: ['text-white-100']
-            },
-            '#default-navbar .text-white-50': {
-              addClass: ['text-black-50'],
-              removeClass: ['text-white-50']
-            },
             '#default-navbar .border-black': {
               addClass: ['border-default'],
               removeClass: ['border-black']
-            },
-            '#default-navbar .search-form': {
-              addClass: ['search-form--light'],
-              removeClass: ['search-form--black']
             }
           },
           'transparent': {
@@ -1570,25 +1678,9 @@ export default {
               addClass: ['navbar-light', 'bg-body'],
               removeClass: ['navbar-dark', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple']
             },
-            '#default-navbar [data-toggle=modal]': {
-              addClass: ['btn-light'],
-              removeClass: ['btn-black']
-            },
-            '#default-navbar .text-white-100': {
-              addClass: ['text-black-100'],
-              removeClass: ['text-white-100']
-            },
-            '#default-navbar .text-white-50': {
-              addClass: ['text-black-50'],
-              removeClass: ['text-white-50']
-            },
             '#default-navbar .border-black': {
               addClass: ['border-default'],
               removeClass: ['border-black']
-            },
-            '#default-navbar .search-form': {
-              addClass: ['search-form--light'],
-              removeClass: ['search-form--black']
             }
           },
           'dark': {
@@ -1599,25 +1691,22 @@ export default {
               addClass: ['navbar-dark', 'bg-dark'],
               removeClass: ['navbar-light', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2']
             },
-            '#default-navbar [data-toggle=modal]': {
-              addClass: ['btn-black'],
-              removeClass: ['btn-light']
+            '#default-navbar .border-default': {
+              addClass: ['border-black'],
+              removeClass: ['border-default']
+            }
+          },
+          'dark-mode': {
+            '#default-navbar .navbar-brand img': {
+              src: 'assets/images/logo/accent-teal-100@2x.png',
             },
-            '#default-navbar .text-black-100': {
-              addClass: ['text-white-100'],
-              removeClass: ['text-black-100']
-            },
-            '#default-navbar .text-black-50': {
-              addClass: ['text-white-50'],
-              removeClass: ['text-black-50']
+            '#default-navbar': {
+              addClass: ['navbar-dark', 'bg-body'],
+              removeClass: ['navbar-light', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'border-bottom-2']
             },
             '#default-navbar .border-default': {
               addClass: ['border-black'],
               removeClass: ['border-default']
-            },
-            '#default-navbar .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
             }
           },
           'dark-blue': {
@@ -1628,25 +1717,9 @@ export default {
               addClass: ['navbar-dark', 'navbar-dark-blue'],
               removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2']
             },
-            '#default-navbar [data-toggle=modal]': {
-              addClass: ['btn-black'],
-              removeClass: ['btn-light']
-            },
-            '#default-navbar .text-black-100': {
-              addClass: ['text-white-100'],
-              removeClass: ['text-black-100']
-            },
-            '#default-navbar .text-black-50': {
-              addClass: ['text-white-50'],
-              removeClass: ['text-black-50']
-            },
             '#default-navbar .border-default': {
               addClass: ['border-black'],
               removeClass: ['border-default']
-            },
-            '#default-navbar .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
             }
           },
           'dark-purple': {
@@ -1657,25 +1730,9 @@ export default {
               addClass: ['navbar-dark', 'navbar-dark-purple'],
               removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-blue', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2']
             },
-            '#default-navbar [data-toggle=modal]': {
-              addClass: ['btn-black'],
-              removeClass: ['btn-light']
-            },
-            '#default-navbar .text-black-100': {
-              addClass: ['text-white-100'],
-              removeClass: ['text-black-100']
-            },
-            '#default-navbar .text-black-50': {
-              addClass: ['text-white-50'],
-              removeClass: ['text-black-50']
-            },
             '#default-navbar .border-default': {
               addClass: ['border-black'],
               removeClass: ['border-default']
-            },
-            '#default-navbar .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
             }
           },
           'black': {
@@ -1686,25 +1743,9 @@ export default {
               addClass: ['navbar-dark', 'navbar-black'],
               removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'bg-white', 'bg-body', 'border-bottom-2']
             },
-            '#default-navbar [data-toggle=modal]': {
-              addClass: ['btn-black'],
-              removeClass: ['btn-light']
-            },
-            '#default-navbar .text-black-100': {
-              addClass: ['text-white-100'],
-              removeClass: ['text-black-100']
-            },
-            '#default-navbar .text-black-50': {
-              addClass: ['text-white-50'],
-              removeClass: ['text-black-50']
-            },
             '#default-navbar .border-default': {
               addClass: ['border-black'],
               removeClass: ['border-default']
-            },
-            '#default-navbar .search-form': {
-              addClass: ['search-form--black'],
-              removeClass: ['search-form--light']
             }
           }
         }

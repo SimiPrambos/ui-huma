@@ -73,3 +73,27 @@ label {
     }
   }
 }
+
+/////////////////////////////////////////////////////////////////
+// TODO: add to bv-form-image-group/src/BvFormImageGroup.scss; //
+/////////////////////////////////////////////////////////////////
+
+.form-image-group {
+  [disabled] ~ label,
+  :disabled ~ label {
+    &::after {
+      display: block;
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      background: $input-disabled-bg;
+      width: initial;
+      height: initial;
+      border-radius: 0;
+      content: " ";
+      opacity: .4;
+    }
+  }
+}

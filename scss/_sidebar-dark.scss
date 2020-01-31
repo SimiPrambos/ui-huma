@@ -17,6 +17,7 @@
 }
 
 .sidebar-dark {
+  @include mdc-elevation(3, #000, $shadow-opacity-boost);
   .text-100 {
     color: $sidebar-dark-text-color;
   }

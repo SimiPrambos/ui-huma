@@ -69,15 +69,14 @@
   line-height: 1rem;
 }
 
-.text-20 { color: rgba($body-color, .2) !important; }
-.text-50 { color: rgba($body-color, .5) !important; }
-.text-70 { color: rgba($body-color, .7) !important; }
-.text-black-20 { color: rgba($black, .2) !important; }
-.text-black-50 { color: rgba($black, .5) !important; }
-.text-black-70 { color: rgba($black, .7) !important; }
-.text-black-100 { color: $black !important; }
-.text-white-70 { color: rgba($white, .7) !important; }
+.text-20, .text-black-20 { color: rgba($body-color, .2) !important; }
+.text-50, .text-black-50 { color: rgba($body-color, .5) !important; }
+.text-70, .text-black-70 { color: rgba($body-color, .7) !important; }
+.text-100, .text-black-100 { color: $body-color !important; }
+.text-white-20 { color: rgba($white, .2) !important; }
+.text-white-50 { color: rgba($white, .5) !important; }
 .text-white-60 { color: rgba($white, .6) !important; }
+.text-white-70 { color: rgba($white, .7) !important; }
 
 /////////////
 // SPACING //
