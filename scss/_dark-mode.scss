@@ -30,7 +30,7 @@ html.dark-mode {
     background-color: $dark-body-bg;
   }
 
-  a {
+  a:not(.dropdown-item) {
     color: rgba($dark-body-color, .7);
     
     @include hover {
@@ -44,7 +44,9 @@ html.dark-mode {
   
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    color: $dark-headings-color;
+    &:not(.popover-header) { // fix for charts popover
+      color: $dark-headings-color;
+    }
   }
 
   ///////////////////
@@ -54,9 +56,9 @@ html.dark-mode {
   .bg-body {
     background-color: $dark-body-bg !important;
   }
-  // .bg-white {
-  //   background-color: transparent !important;
-  // }
+  .bg-alt {
+    background: $dark-body-bg;
+  }
 
   .text-body { color: $dark-body-color !important; }
   .text-20 { color: rgba($dark-body-color, .2) !important; }
@@ -293,6 +295,16 @@ html.dark-mode {
   
   .form-label {
     color: rgba($dark-body-color, .7);
+  }
+
+  .card-form__body {
+    background-color: lighten($dark-body-bg, 1%);
+
+    label:not([class]) {
+      text-transform: uppercase;
+      font-size: 0.707rem;
+      color: rgba($dark-body-color, .7);
+    }
   }
 
   ///////////////////////////////////////////////

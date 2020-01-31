@@ -181,6 +181,7 @@ export default {
           children: [
             {
               id: 'theme',
+              visible: false,
               options: [
                 { value: 'light' },
                 { value: 'dark' }
@@ -207,6 +208,21 @@ export default {
         {
           id: 'messagesDrawer',
           title: 'Messages Drawer',
+          visible: false,
+          children: [
+            {
+              id: 'theme',
+              options: [
+                { value: 'light' },
+                { value: 'dark' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'messagesNavbar',
+          title: 'Messages Navbar',
+          visible: false,
           children: [
             {
               id: 'theme',
@@ -220,6 +236,7 @@ export default {
         {
           id: 'mainNavbar',
           title: 'Main Navbar',
+          visible: false,
           children: [
             {
               id: 'navbar',
@@ -309,6 +326,9 @@ export default {
             this.settings['theme.theme'] = 'dark'
           }
 
+          this.settings['messagesDrawer.theme'] = darkMode ? 'dark' : 'light'
+          this.settings['messagesNavbar.theme'] = darkMode ? 'dark' : 'light'
+
           if (darkMode) {
             this.applyElements({
               '.chart-canvas': {
@@ -344,14 +364,36 @@ export default {
         'messagesDrawer.theme': {
           'light': {
             '#messages-drawer .sidebar': {
-              addClass: ['sidebar-light'],
-              removeClass: ['sidebar-dark', 'bg-dark']
+              addClass: ['sidebar-light', 'bg-white'],
+              removeClass: ['sidebar-dark', 'bg-body']
+            },
+            '#messages-drawer .bg-black': {
+              addClass: ['bg-light'],
+              removeClass: ['bg-black']
             }
           },
           'dark': {
             '#messages-drawer .sidebar': {
-              addClass: ['sidebar-dark', 'bg-dark'],
-              removeClass: ['sidebar-light']
+              addClass: ['sidebar-dark', 'bg-body'],
+              removeClass: ['sidebar-light', 'bg-white']
+            },
+            '#messages-drawer .bg-light': {
+              addClass: ['bg-black'],
+              removeClass: ['bg-light']
+            }
+          }
+        },
+        'messagesNavbar.theme': {
+          'light': {
+            '#messages-navbar': {
+              addClass: ['navbar-light', 'bg-white'],
+              removeClass: ['navbar-dark', 'bg-body']
+            }
+          },
+          'dark': {
+            '#messages-navbar ': {
+              addClass: ['navbar-dark', 'bg-body'],
+              removeClass: ['navbar-light', 'bg-white']
             }
           }
         },
