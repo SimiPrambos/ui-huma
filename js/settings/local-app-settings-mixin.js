@@ -246,38 +246,52 @@ export default {
                 {
                   text: 'Transparent',
                   value: 'transparent',
-                  disabled: ['default'].includes(this.settings['layout.layout']),
                   selected: true
                 },
                 {
                   text: 'Light',
-                  value: 'light',
-                  disabled: ['default'].includes(this.settings['layout.layout'])
+                  value: 'light'
                 },
                 {
                   text: 'Dark Teal',
-                  value: 'dark',
-                  disabled: ['app', 'mini'].includes(this.settings['layout.layout']) || this.settings['theme.theme'] !== 'dark'
+                  value: 'dark'
                 },
                 {
                   text: 'Dark Blue',
-                  value: 'dark-blue',
-                  disabled: ['app', 'mini'].includes(this.settings['layout.layout']) || this.settings['theme.theme'] !== 'dark-blue'
+                  value: 'dark-blue'
                 },
                 {
                   text: 'Dark Purple',
-                  value: 'dark-purple',
-                  disabled: ['app', 'mini'].includes(this.settings['layout.layout']) || this.settings['theme.theme'] !== 'dark-purple'
+                  value: 'dark-purple'
                 },
                 {
                   text: 'Black',
-                  value: 'black',
-                  disabled: ['app', 'mini'].includes(this.settings['layout.layout']) || this.settings['theme.theme'] !== 'black'
+                  value: 'black'
                 }
               ]
             }
           ]
-        }
+        },
+        {
+          id: 'secondaryNavbar',
+          title: 'Secondary Navbar',
+          visible: false,
+          children: [
+            {
+              id: 'theme',
+              title: 'Theme',
+              options: [
+                {
+                  value: 'light',
+                  selected: true
+                },
+                {
+                  value: 'dark'
+                }
+              ]
+            }
+          ]
+        },
       ]
     },
     config() {
@@ -328,6 +342,7 @@ export default {
 
           this.settings['messagesDrawer.theme'] = darkMode ? 'dark' : 'light'
           this.settings['messagesNavbar.theme'] = darkMode ? 'dark' : 'light'
+          this.settings['secondaryNavbar.theme'] = darkMode ? 'dark' : 'light'
 
           if (darkMode) {
             this.applyElements({
@@ -554,6 +569,12 @@ export default {
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'teal;gray.300' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
             '.js-update-chart-progress': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
@@ -700,6 +721,12 @@ export default {
             '#attendanceDoughnutChart': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'primary;accent;gray.700;gray' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
@@ -852,6 +879,12 @@ export default {
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'yellow;gray.300' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
             '.js-update-chart-progress': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
@@ -996,6 +1029,12 @@ export default {
             '#attendanceDoughnutChart': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'purple;accent;gray.700;gray' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
@@ -1149,6 +1188,12 @@ export default {
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'teal;gray.300' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
             '.js-update-chart-progress': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
@@ -1295,6 +1340,12 @@ export default {
             '#attendanceDoughnutChart': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'primary;accent;gray.700;gray' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
@@ -1447,6 +1498,12 @@ export default {
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
             '.js-update-chart-progress': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'purple;gray' },
@@ -1594,6 +1651,12 @@ export default {
                 { 'name': 'data-chart-line-background-opacity', 'value': '1' }
               ]
             },
+            '#visitsByDeviceChart': {
+              setAttribute: [
+                { 'name': 'data-chart-line-background-color', 'value': 'yellow;gray.300' },
+                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
+              ]
+            },
             '.js-update-chart-progress': {
               setAttribute: [
                 { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
@@ -1689,6 +1752,20 @@ export default {
             '.badge-accent-red': {
               addClass: ['badge-accent-yellow'],
               removeClass: ['badge-accent-red']
+            }
+          }
+        },
+        'secondaryNavbar.theme': {
+          'light': {
+            '#secondary-navbar': {
+              addClass: ['navbar-light', 'bg-white'],
+              removeClass: ['navbar-dark', 'bg-body', 'border-top']
+            }
+          },
+          'dark': {
+            '#secondary-navbar': {
+              addClass: ['navbar-dark', 'bg-body', 'border-top'],
+              removeClass: ['navbar-light', 'bg-white']
             }
           }
         },

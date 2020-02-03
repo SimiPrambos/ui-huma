@@ -397,4 +397,24 @@ html.dark-mode {
     background-color: $dark-body-bg;
   }
 
+  ////////////////////////////////////
+  // ui-huma/scss/_icon-holder.scss //
+  ////////////////////////////////////
+  
+  .icon-holder--outline-muted {
+    @include icon-holder-outline-variant(rgba($dark-body-color, .5));
+  }
+
+  ///////////////////////////////////
+  // ui-huma/scss/_menu-modal.scss //
+  ///////////////////////////////////
+  
+  .menu-modal .menu .nav-link:not(.active) {
+    color: rgba($dark-body-color, .7);
+  }
+
+  .menu-modal .menu .nav-link.active:hover {
+    color: rgba($body-color, .7);
+  }
+
 }

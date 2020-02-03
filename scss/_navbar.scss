@@ -178,13 +178,6 @@
   }
 }
 
-.navbar-light .navbar-collapse {
-  background-color: #fff;
-  @include media-breakpoint-only(xs) {
-    border-top: 1px solid $border-color;
-  }
-}
-
 .navbar-mini {
   min-height: $navbar-mini-height;
   .navbar-nav .nav-link {
