@@ -1,4 +1,4 @@
-.sidebar-dark-purple {
+.sidebar-dark-dodger-blue {
 
   @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
 
@@ -7,7 +7,7 @@
   /////////////
   
   color: $sidebar-dark-text-color;
-  background: $purple-gradient;
+  background: $pickled-bluewood;
 
   // borders
   @each $direction, $border-direction in (left: right, right: left) {
@@ -25,30 +25,30 @@
 
   // borders
   [class*="sidebar-b-"] {
-    border-color: $sidebar-dark-purple-border-color;
+    border-color: $sidebar-dark-dodger-blue-border-color;
   }
 
   // text
   .sidebar-text, 
-  .text-100,
+  .text-100, 
   p {
-    color: $sm-dark-purple-button-color !important;
+    color: white !important;
   }
 
   .text-50 {
-    color: rgba($sm-dark-purple-button-color, .5) !important;
+    color: rgba($sm-dark-blue-button-color, .5) !important;
   }
 
   // heading
   .sidebar-heading {
     &, & > a {
-      color: $sidebar-dark-purple-heading-color;
+      color: $sidebar-dark-blue-heading-color;
     }
   }
 
   // divider
   hr {
-    border-color: $sidebar-dark-purple-border-color;
+    border-color: $sidebar-dark-dodger-blue-border-color;
   }
 
   // brand
@@ -67,52 +67,52 @@
   //////////
   
   .sidebar-menu-button {
-    color: $sm-dark-purple-button-color;
+    color: $sm-dark-blue-button-color;
   }
   .sidebar-menu-toggle-icon {
     color: $sm-dark-toggle-color;
   }
   .sidebar-menu-icon {
-    color: $sm-dark-purple-icon-color;
+    color: $sm-dark-blue-icon-color;
   }
   .sidebar-menu-button:hover {
     color: $sm-dark-hover-button-color;
-    background: $sm-dark-purple-hover-button-bg;
+    background: $sm-dark-blue-hover-button-bg;
     .sidebar-menu-icon {
-      color: $sm-dark-purple-hover-icon-color;
+      color: $sm-dark-blue-hover-icon-color;
     }
     .sidebar-menu-toggle-icon {
-      color: $sm-dark-purple-hover-icon-color;
+      color: $sm-dark-blue-hover-icon-color;
     }
   }
   .open {
-    background: $sm-dark-purple-open-bg;
+    background: $sm-dark-dodger-blue-open-bg;
   }
   .open > .sidebar-menu-button .sidebar-menu-toggle-icon {
-    color: $sm-dark-purple-open-toggle-color;
+    color: $sm-dark-blue-open-toggle-color;
   }
   .open > .sidebar-menu-button {
     background: $sm-dark-open-button-bg;
-    color: $sm-dark-purple-open-button-color;
+    color: $sm-dark-blue-open-button-color;
     .sidebar-menu-icon {
-      color: $sm-dark-purple-open-icon-color;
+      color: $sm-dark-blue-open-icon-color;
     }
   }
   .active > .sidebar-menu-button {
-    color: $sm-dark-purple-active-button-color;
+    color: $sm-dark-blue-active-button-color;
     .sidebar-menu-icon {
       color: $sm-dark-active-icon-color;
     }
   }
   .sidebar-submenu {
     .sidebar-menu-text {
-      border-left: 1px solid $sidebar-dark-purple-border-color;
+      border-left: 1px solid $pickled-bluewood;
     }
     .sidebar-menu-button {
-      color: $ssm-dark-purple-button-color;
+      color: $ssm-dark-blue-button-color;
     }
     .sidebar-menu-icon {
-      color: $ssm-dark-purple-icon-color;
+      color: $ssm-dark-blue-icon-color;
     }
     .sidebar-menu-button:hover {
       color: $ssm-dark-hover-button-color;
@@ -134,19 +134,19 @@
   
   // bordered menu
   .sm-bordered {
-    border-color: $sidebar-dark-purple-border-color;
+    border-color: $sidebar-dark-dodger-blue-border-color;
   }
   // bordered submenu
   .sm-bordered.sidebar-submenu {
-    border-color: $sidebar-dark-purple-border-color;
+    border-color: $sidebar-dark-dodger-blue-border-color;
   }
   // bordered menu item
   .sm-item-bordered > .sidebar-menu-item {
-    border-color: $sidebar-dark-container-border-color;
+    border-color: $sidebar-dark-dodger-blue-border-color;
   }
   // bordered submenu item
   .sm-item-bordered.sidebar-submenu > .sidebar-menu-item {
-    border-color: $sidebar-dark-container-border-color;
+    border-color: $sidebar-dark-dodger-blue-border-color;
   }
   // icons block
   .sm-icons-block > .sidebar-menu-item {
@@ -155,7 +155,7 @@
       color: $sm-dark-iconsblock-icon-color;
     }
     &.open > .sidebar-menu-button .sidebar-menu-icon {
-      color: $sm-dark-purple-open-icon-color;
+      color: $sm-dark-blue-open-icon-color;
       background: $sm-dark-open-icon-bg;
     }
     &.active > .sidebar-menu-button .sidebar-menu-icon {
@@ -166,13 +166,13 @@
   
   // active button background
   .sm-active-button-bg > .active > .sidebar-menu-button {
-    background: $sm-dark-purple-active-button-bg;
-    color: $sm-dark-purple-activebuttonbg-button-color;
+    background: $sm-dark-blue-active-button-bg;
+    color: $sm-dark-blue-activebuttonbg-button-color;
     .sidebar-menu-icon {
-      color: $sm-dark-purple-activebuttonbg-icon-color;
+      color: $sm-dark-blue-activebuttonbg-icon-color;
     }
     .sidebar-menu-toggle-icon {
-      color: $sm-dark-purple-activebuttonbg-icon-color;
+      color: $sm-dark-blue-activebuttonbg-icon-color;
     }
   }
   // icons block + active button bg
@@ -185,16 +185,16 @@
   }
 
   .sidebar-submenu .sidebar-menu-text::after {
-    background-color: $accent-red;
+    background-color: $accent-yellow;
   }
 
   .search-form--black {
-    background-color: $sm-dark-purple-open-bg;
-    border-color: $sm-dark-purple-open-bg;
+    background-color: $sm-dark-dodger-blue-open-bg;
+    border-color: $sm-dark-dodger-blue-open-bg;
     .form-control {
       color: $white;
       &::placeholder {
-        color: $sm-dark-purple-open-icon-color;
+        color: $sm-dark-blue-open-icon-color;
       }
       &:focus {
         background-color: transparent !important;
@@ -202,15 +202,15 @@
     }
     .btn {
       background: transparent;
-      color: $sm-dark-purple-open-icon-color;
+      color: $sm-dark-blue-open-icon-color;
     }
   }
 
   .navbar-toggler {
-    color: $sm-dark-purple-icon-color;
+    color: $sm-dark-blue-icon-color;
 
     @include hover {
-      color: $sm-dark-purple-hover-icon-color;
+      color: $sm-dark-blue-hover-icon-color;
     }
   }
 }

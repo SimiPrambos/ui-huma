@@ -9,7 +9,9 @@ const colors = {
     teal: '#00BCC2',
     yellow: '#E4A93C',
     success: '#66BB6A',
-    purple: '#824EE1'
+    purple: '#824EE1',
+    'dodger-blue': '#5567FF',
+    'dodger-blue-20': hexToRGB('#5567FF', 0.20),
   },
   darkMode: {
     border: '#19191A',

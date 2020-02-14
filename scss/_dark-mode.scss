@@ -417,4 +417,23 @@ html.dark-mode {
     color: rgba($body-color, .7);
   }
 
+  /////////////////////////////////////
+  // ui-huma/scss/_layout-boxed.scss //
+  /////////////////////////////////////
+
+  .layout-boxed {
+    .page-content {
+      background-color: $dark-body-bg;
+      @include media-breakpoint-up(lg) {
+        @include mdc-elevation(3, #000, $shadow-opacity-boost);
+      }
+    }
+    #default-drawer .sidebar-brand {
+      @include mdc-elevation(3, #000, $shadow-opacity-boost);
+    }
+    .page-separator__text {
+      background-color: $dark-body-bg;
+    }
+  }
+
 }

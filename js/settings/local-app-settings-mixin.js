@@ -1,3 +1,18 @@
+import darkTheme from './darkTheme'
+import lightTheme from './lightTheme'
+
+import darkDodgerBlueTheme from './darkDodgerBlueTheme'
+import lightDodgerBlueTheme from './lightDodgerBlueTheme'
+
+import blackTheme from './blackTheme'
+import lightRedTheme from './lightRedTheme'
+
+import darkBlueTheme from './darkBlueTheme'
+import lightYellowTheme from './lightYellowTheme'
+
+import darkPurpleTheme from './darkPurpleTheme'
+import lightPurpleTheme from './lightPurpleTheme'
+
 export default {
   props: {
     layoutActive: {
@@ -28,6 +43,18 @@ export default {
               component: 'form-image-group',
               value: 'light',
               options: [
+                {
+                  text: 'Dark Dodger Blue',
+                  image: 'assets/images/theme-dark-dodger-blue.png',
+                  value: 'dark-dodger-blue',
+                  disabled: !!this.settings['theme.darkMode']
+                },
+                {
+                  text: 'Light Dodger Blue',
+                  image: 'assets/images/theme-light-dodger-blue.png',
+                  value: 'light-dodger-blue',
+                  disabled: !!this.settings['theme.darkMode']
+                },
                 {
                   text: 'Dark Teal',
                   value: 'dark',
@@ -110,6 +137,11 @@ export default {
                   image: 'assets/images/compact-layout.png',
                   value: 'compact',
                   selected: true
+                },
+                {
+                  text: 'Boxed Layout',
+                  image: 'assets/images/boxed-layout.png',
+                  value: 'boxed'
                 },
                 {
                   text: 'Mini Layout',
@@ -267,6 +299,14 @@ export default {
                 {
                   text: 'Black',
                   value: 'black'
+                },
+                {
+                  text: 'Dark Dodger Blue',
+                  value: 'dark-dodger-blue'
+                },
+                {
+                  text: 'Light Dodger Blue',
+                  value: 'light-dodger-blue'
                 }
               ]
             }
@@ -307,11 +347,17 @@ export default {
       if (theme === 'dark-blue' || theme === 'light-yellow') {
         navbarTransparentLogo = 'assets/images/logo/accent-yellow-100@2x.png'
       }
-      if (theme === 'dark-purple' || theme === 'black' || theme === 'light-red') {
+      if (theme === 'black' || theme === 'light-red') {
         navbarTransparentLogo = 'assets/images/logo/accent-red-100@2x.png'
       }
       if (theme === 'light-purple') {
         navbarTransparentLogo = 'assets/images/logo/purple-100@2x.png'
+      }
+      if (theme === 'dark-purple') {
+        navbarTransparentLogo = 'assets/images/logo/white-100@2x.png'
+      }
+      if (theme === 'light-dodger-blue' || theme === 'dark-dodger-blue') {
+        navbarTransparentLogo = 'assets/images/logo/dodger-blue-100@2x.png'
       }
 
       return {
@@ -419,7 +465,7 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-light'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-red', 'sidebar-light-yellow', 'sidebar-light-purple']
+              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light-red', 'sidebar-light-yellow', 'sidebar-light-purple', 'sidebar-light-dodger-blue']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--light'],
@@ -432,7 +478,7 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-light', 'sidebar-light-red'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-yellow', 'sidebar-light-purple']
+              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light-yellow', 'sidebar-light-purple', 'sidebar-light-dodger-blue']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--light'],
@@ -445,7 +491,7 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-light', 'sidebar-light-yellow'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'bg-dark-blue', 'bg-dark-purple', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-red', 'sidebar-light-purple']
+              removeClass: ['sidebar-dark', 'bg-dark', 'bg-dark-blue', 'bg-dark-purple', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light-red', 'sidebar-light-purple', 'sidebar-light-dodger-blue']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--light'],
@@ -454,11 +500,11 @@ export default {
           },
           'light-purple': {
             '#default-drawer .sidebar-brand-icon': {
-              src: 'assets/images/logo/purple-100@2x.png',
+              src: navbarTransparentLogo,
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-light', 'sidebar-light-purple'],
-              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light-yellow', 'sidebar-light-red']
+              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light-yellow', 'sidebar-light-red', 'sidebar-light-dodger-blue']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--light'],
@@ -471,7 +517,7 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-dark', 'bg-dark'],
-              removeClass: ['sidebar-light', 'sidebar-light-red', 'sidebar-light-yellow', 'sidebar-light-purple', 'bg-white', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black']
+              removeClass: ['sidebar-light', 'sidebar-light-red', 'sidebar-light-yellow', 'sidebar-light-purple', 'sidebar-light-dodger-blue', 'bg-white', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--black'],
@@ -484,7 +530,7 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-black'],
-              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-dark-purple', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'bg-white', 'bg-dark']
+              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-dark-purple', 'sidebar-dark-dodger-blue', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'sidebar-light-dodger-blue', 'bg-white', 'bg-dark']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--black'],
@@ -497,7 +543,7 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-dark-purple'],
-              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'bg-white', 'bg-dark']
+              removeClass: ['sidebar-dark', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-yellow', 'sidebar-light-red', 'sidebar-light-dodger-blue', 'bg-white', 'bg-dark']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--black'],
@@ -510,1250 +556,51 @@ export default {
             },
             '#default-drawer .sidebar': {
               addClass: ['sidebar-dark-blue'],
-              removeClass: ['sidebar-dark', 'sidebar-dark-purple', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'bg-white', 'bg-dark']
+              removeClass: ['sidebar-dark', 'sidebar-dark-purple', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-dodger-blue', 'bg-white', 'bg-dark']
             },
             '#default-drawer .search-form': {
               addClass: ['search-form--black'],
               removeClass: ['search-form--light']
             }
+          },
+          'dark-dodger-blue': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/dodger-blue-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-dark-dodger-blue'],
+              removeClass: ['sidebar-dark', 'sidebar-dark-purple', 'sidebar-black', 'sidebar-light', 'sidebar-light-purple', 'sidebar-light-dodger-blue', 'bg-white', 'bg-dark']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--black'],
+              removeClass: ['search-form--light']
+            }
+          },
+          'light-dodger-blue': {
+            '#default-drawer .sidebar-brand-icon': {
+              src: 'assets/images/logo/dodger-blue-100@2x.png',
+            },
+            '#default-drawer .sidebar': {
+              addClass: ['sidebar-light', 'sidebar-light-dodger-blue'],
+              removeClass: ['sidebar-dark', 'bg-dark', 'sidebar-dark-purple', 'sidebar-dark-blue', 'sidebar-black', 'sidebar-dark-dodger-blue', 'sidebar-light-yellow', 'sidebar-light-red']
+            },
+            '#default-drawer .search-form': {
+              addClass: ['search-form--light'],
+              removeClass: ['search-form--black']
+            }
           }
         },
         'theme.theme': {
-          'light': {
-            'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'sticky') {
-                return 'dark'
-              }
-              if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return !!this.settings['theme.darkMode'] ? 'dark' : 'light'
-            },
-            '.bg-dark-blue': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-blue']
-            },
-            '.bg-dark-purple': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-purple']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'teal;primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;teal;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'teal;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'teal;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'teal' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary,teal' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary-purple': {
-              addClass: ['bg-primary'],
-              removeClass: ['bg-primary-purple']
-            },
-
-            '.border-left-primary-purple': {
-              addClass: ['border-left-primary'],
-              removeClass: ['border-left-primary-purple']
-            },
-            '.border-left-accent-yellow': {
-              addClass: ['border-left-accent'],
-              removeClass: ['border-left-accent-yellow']
-            },
-            '.border-left-accent-red': {
-              addClass: ['border-left-accent'],
-              removeClass: ['border-left-accent-red']
-            },
-            '.alert-primary-purple': {
-              addClass: ['alert-primary'],
-              removeClass: ['alert-primary-purple']
-            },
-            '.alert-accent-red': {
-              addClass: ['alert-accent'],
-              removeClass: ['alert-accent-red']
-            },
-            '.alert-accent-yellow': {
-              addClass: ['alert-accent'],
-              removeClass: ['alert-accent-yellow']
-            },
-            '.alert-soft-primary-purple': {
-              addClass: ['alert-soft-primary'],
-              removeClass: ['alert-soft-primary-purple']
-            },
-            '.alert-soft-accent-yellow': {
-              addClass: ['alert-soft-accent'],
-              removeClass: ['alert-soft-accent-yellow']
-            },
-            '.alert-soft-accent-red': {
-              addClass: ['alert-soft-accent'],
-              removeClass: ['alert-soft-accent-red']
-            },
-
-            '.text-accent-yellow': {
-              addClass: ['text-accent'],
-              removeClass: ['text-accent-yellow']
-            },
-            '.text-accent-red': {
-              addClass: ['text-accent'],
-              removeClass: ['text-accent-red']
-            },
-            '.bg-accent-yellow': {
-              addClass: ['bg-accent'],
-              removeClass: ['bg-accent-yellow']
-            },
-            '.bg-accent-red': {
-              addClass: ['bg-accent'],
-              removeClass: ['bg-accent-red']
-            },
-            '.btn-accent-yellow': {
-              addClass: ['btn-accent'],
-              removeClass: ['btn-accent-yellow']
-            },
-            '.btn-accent-red': {
-              addClass: ['btn-accent'],
-              removeClass: ['btn-accent-red']
-            },
-            '.badge-accent-yellow': {
-              addClass: ['badge-accent'],
-              removeClass: ['badge-accent-yellow']
-            },
-            '.badge-accent-red': {
-              addClass: ['badge-accent'],
-              removeClass: ['badge-accent-red']
-            }
-          },
-          'light-red': {
-            'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'sticky') {
-                return 'black'
-              }
-              if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return !!this.settings['theme.darkMode'] ? 'black' : 'light-red'
-            },
-            '.bg-dark-blue': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-blue']
-            },
-            '.bg-dark-purple': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-purple']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;accent;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary,accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary-purple': {
-              addClass: ['bg-primary'],
-              removeClass: ['bg-primary-purple']
-            },
-
-            '.border-left-primary-purple': {
-              addClass: ['border-left-primary'],
-              removeClass: ['border-left-primary-purple']
-            },
-            '.border-left-accent-yellow': {
-              addClass: ['border-left-accent'],
-              removeClass: ['border-left-accent-yellow']
-            },
-            '.border-left-accent': {
-              addClass: ['border-left-accent-red'],
-              removeClass: ['border-left-accent']
-            },
-            '.alert-primary-purple': {
-              addClass: ['alert-primary'],
-              removeClass: ['alert-primary-purple']
-            },
-            '.alert-accent': {
-              addClass: ['alert-accent-red'],
-              removeClass: ['alert-accent']
-            },
-            '.alert-accent-yellow': {
-              addClass: ['alert-accent'],
-              removeClass: ['alert-accent-yellow']
-            },
-            '.alert-soft-primary-purple': {
-              addClass: ['alert-soft-primary'],
-              removeClass: ['alert-soft-primary-purple']
-            },
-            '.alert-soft-accent-yellow': {
-              addClass: ['alert-soft-accent'],
-              removeClass: ['alert-soft-accent-yellow']
-            },
-            '.alert-soft-accent': {
-              addClass: ['alert-soft-accent-red'],
-              removeClass: ['alert-soft-accent']
-            },
-
-            '.text-accent-yellow': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent-yellow']
-            },
-            '.text-accent': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent']
-            },
-            '.bg-accent-yellow': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent-yellow']
-            },
-            '.bg-accent': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent']
-            },
-            '.btn-accent-yellow': {
-              addClass: ['btn-accent'],
-              removeClass: ['btn-accent-yellow']
-            },
-            '.btn-accent': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent']
-            },
-            '.badge-accent-yellow': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent-yellow']
-            },
-            '.badge-accent': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent']
-            }
-          },
-          'light-yellow': {
-            'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'sticky') {
-                return 'dark-blue'
-              }
-              if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return !!this.settings['theme.darkMode'] ? 'dark-blue' : 'light-yellow'
-            },
-            '.bg-dark': {
-              addClass: ['bg-dark-blue'],
-              removeClass: ['bg-dark']
-            },
-            '.bg-dark-purple': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-purple']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'yellow;primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;yellow;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'yellow;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'yellow;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'yellow' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary,yellow' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary-purple': {
-              addClass: ['bg-primary'],
-              removeClass: ['bg-primary-purple']
-            },
-            '.border-left-primary-purple': {
-              addClass: ['border-left-primary'],
-              removeClass: ['border-left-primary-purple']
-            },
-            '.border-left-accent': {
-              addClass: ['border-left-accent-yellow'],
-              removeClass: ['border-left-accent']
-            },
-            '.border-left-accent-red': {
-              addClass: ['border-left-accent-yellow'],
-              removeClass: ['border-left-accent-red']
-            },
-            '.alert-primary-purple': {
-              addClass: ['alert-primary'],
-              removeClass: ['alert-primary-purple']
-            },
-            '.alert-accent': {
-              addClass: ['alert-accent-yellow'],
-              removeClass: ['alert-accent']
-            },
-            '.alert-accent-red': {
-              addClass: ['alert-accent-yellow'],
-              removeClass: ['alert-accent-red']
-            },
-            '.alert-soft-primary-purple': {
-              addClass: ['alert-soft-primary'],
-              removeClass: ['alert-soft-primary-purple']
-            },
-            '.alert-soft-accent': {
-              addClass: ['alert-soft-accent-yellow'],
-              removeClass: ['alert-soft-accent']
-            },
-            '.alert-soft-accent-red': {
-              addClass: ['alert-soft-accent-yellow'],
-              removeClass: ['alert-soft-accent-red']
-            },
-            '.text-accent-red': {
-              addClass: ['text-accent-yellow'],
-              removeClass: ['text-accent-red']
-            },
-            '.text-accent': {
-              addClass: ['text-accent-yellow'],
-              removeClass: ['text-accent']
-            },
-            '.bg-accent-red': {
-              addClass: ['bg-accent-yellow'],
-              removeClass: ['bg-accent-red']
-            },
-            '.bg-accent': {
-              addClass: ['bg-accent-yellow'],
-              removeClass: ['bg-accent']
-            },
-            '.btn-accent-red': {
-              addClass: ['btn-accent-yellow'],
-              removeClass: ['btn-accent-red']
-            },
-            '.btn-accent': {
-              addClass: ['btn-accent-yellow'],
-              removeClass: ['btn-accent']
-            },
-            '.badge-accent-red': {
-              addClass: ['badge-accent-yellow'],
-              removeClass: ['badge-accent-red']
-            },
-            '.badge-accent': {
-              addClass: ['badge-accent-yellow'],
-              removeClass: ['badge-accent']
-            }
-          },
-          'light-purple': {
-            'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'sticky') {
-                return 'dark-purple'
-              }
-              if (!['light', 'transparent'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return !!this.settings['theme.darkMode'] ? 'dark-purple' : 'light-purple'
-            },
-            '.bg-dark-blue': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-blue']
-            },
-            '.bg-dark': {
-              addClass: ['bg-dark-purple'],
-              removeClass: ['bg-dark']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'purple' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;purple;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple;accent;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'purple,accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary': {
-              addClass: ['bg-primary-purple'],
-              removeClass: ['bg-primary']
-            },
-            '.border-left-primary': {
-              addClass: ['border-left-primary-purple'],
-              removeClass: ['border-left-primary']
-            },
-            '.border-left-accent': {
-              addClass: ['border-left-accent-red'],
-              removeClass: ['border-left-accent']
-            },
-            '.border-left-accent-yellow': {
-              addClass: ['border-left-accent-red'],
-              removeClass: ['border-left-accent-yellow']
-            },
-            '.alert-primary': {
-              addClass: ['alert-primary-purple'],
-              removeClass: ['alert-primary']
-            },
-            '.alert-accent': {
-              addClass: ['alert-accent-red'],
-              removeClass: ['alert-accent']
-            },
-            '.alert-accent-yellow': {
-              addClass: ['alert-accent-red'],
-              removeClass: ['alert-accent-yellow']
-            },
-            '.alert-soft-primary': {
-              addClass: ['alert-soft-primary-purple'],
-              removeClass: ['alert-soft-primary']
-            },
-            '.alert-soft-accent': {
-              addClass: ['alert-soft-accent-red'],
-              removeClass: ['alert-soft-accent']
-            },
-            '.alert-soft-accent-yellow': {
-              addClass: ['alert-soft-accent-red'],
-              removeClass: ['alert-soft-accent-yellow']
-            },
-            '.text-accent': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent']
-            },
-            '.text-accent-yellow': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent-yellow']
-            },
-            '.bg-accent': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent']
-            },
-            '.bg-accent-yellow': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent-yellow']
-            },
-            '.btn-accent': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent']
-            },
-            '.btn-accent-yellow': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent-yellow']
-            },
-            '.badge-accent': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent']
-            },
-            '.badge-accent-yellow': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent-yellow']
-            }
-          },
-          'dark': {
-            'mainNavbar.navbar': function() {
-              if (!!this.settings['theme.darkMode']) {
-                return 'dark-mode'
-              }
-              if (this.settings['layout.layout'] === 'default') {
-                return 'dark'
-              }
-              if (!['transparent', 'light'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return 'dark'
-            },
-            '.bg-dark-blue': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-blue']
-            },
-            '.bg-dark-purple': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-purple']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'teal;primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;teal;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'teal;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'teal;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'teal' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary,teal' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary-purple': {
-              addClass: ['bg-primary'],
-              removeClass: ['bg-primary-purple']
-            },
-
-            '.border-left-primary-purple': {
-              addClass: ['border-left-primary'],
-              removeClass: ['border-left-primary-purple']
-            },
-            '.border-left-accent-yellow': {
-              addClass: ['border-left-accent'],
-              removeClass: ['border-left-accent-yellow']
-            },
-            '.border-left-accent-red': {
-              addClass: ['border-left-accent'],
-              removeClass: ['border-left-accent-red']
-            },
-            '.alert-primary-purple': {
-              addClass: ['alert-primary'],
-              removeClass: ['alert-primary-purple']
-            },
-            '.alert-accent-red': {
-              addClass: ['alert-accent'],
-              removeClass: ['alert-accent-red']
-            },
-            '.alert-accent-yellow': {
-              addClass: ['alert-accent'],
-              removeClass: ['alert-accent-yellow']
-            },
-            '.alert-soft-primary-purple': {
-              addClass: ['alert-soft-primary'],
-              removeClass: ['alert-soft-primary-purple']
-            },
-            '.alert-soft-accent-yellow': {
-              addClass: ['alert-soft-accent'],
-              removeClass: ['alert-soft-accent-yellow']
-            },
-            '.alert-soft-accent-red': {
-              addClass: ['alert-soft-accent'],
-              removeClass: ['alert-soft-accent-red']
-            },
-
-            '.text-accent-yellow': {
-              addClass: ['text-accent'],
-              removeClass: ['text-accent-yellow']
-            },
-            '.text-accent-red': {
-              addClass: ['text-accent'],
-              removeClass: ['text-accent-red']
-            },
-            '.bg-accent-red': {
-              addClass: ['bg-accent'],
-              removeClass: ['bg-accent-red']
-            },
-            '.btn-accent-red': {
-              addClass: ['btn-accent'],
-              removeClass: ['btn-accent-red']
-            },
-            '.badge-accent-red': {
-              addClass: ['badge-accent'],
-              removeClass: ['badge-accent-red']
-            },
-            '.bg-accent-yellow': {
-              addClass: ['bg-accent'],
-              removeClass: ['bg-accent-yellow']
-            },
-            '.btn-accent-yellow': {
-              addClass: ['btn-accent'],
-              removeClass: ['btn-accent-yellow']
-            },
-            '.badge-accent-yellow': {
-              addClass: ['badge-accent'],
-              removeClass: ['badge-accent-yellow']
-            }
-          },
-          'black': {
-            'mainNavbar.navbar': function() {
-              if (this.settings['layout.layout'] === 'default') {
-                return 'black'
-              }
-              if (!['transparent', 'light'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return 'black'
-            },
-            '.bg-dark-blue': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-blue']
-            },
-            '.bg-dark-purple': {
-              addClass: ['bg-dark'],
-              removeClass: ['bg-dark-purple']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;accent;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary,accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary-purple': {
-              addClass: ['bg-primary'],
-              removeClass: ['bg-primary-purple']
-            },
-
-            '.border-left-primary-purple': {
-              addClass: ['border-left-primary'],
-              removeClass: ['border-left-primary-purple']
-            },
-            '.border-left-accent-yellow': {
-              addClass: ['border-left-accent'],
-              removeClass: ['border-left-accent-yellow']
-            },
-            '.border-left-accent': {
-              addClass: ['border-left-accent-red'],
-              removeClass: ['border-left-accent']
-            },
-            '.alert-primary-purple': {
-              addClass: ['alert-primary'],
-              removeClass: ['alert-primary-purple']
-            },
-            '.alert-accent': {
-              addClass: ['alert-accent-red'],
-              removeClass: ['alert-accent']
-            },
-            '.alert-accent-yellow': {
-              addClass: ['alert-accent'],
-              removeClass: ['alert-accent-yellow']
-            },
-            '.alert-soft-primary-purple': {
-              addClass: ['alert-soft-primary'],
-              removeClass: ['alert-soft-primary-purple']
-            },
-            '.alert-soft-accent-yellow': {
-              addClass: ['alert-soft-accent'],
-              removeClass: ['alert-soft-accent-yellow']
-            },
-            '.alert-soft-accent': {
-              addClass: ['alert-soft-accent-red'],
-              removeClass: ['alert-soft-accent']
-            },
-
-            '.text-accent': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent']
-            },
-            '.text-accent-yellow': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent-yellow']
-            },
-            '.bg-accent': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent']
-            },
-            '.bg-accent-yellow': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent-yellow']
-            },
-            '.btn-accent': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent']
-            },
-            '.btn-accent-yellow': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent-yellow']
-            },
-            '.badge-accent': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent']
-            },
-            '.badge-accent-yellow': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent-yellow']
-            }
-          },
-          'dark-purple': {
-            'mainNavbar.navbar': function() {
-              if (['default'].includes(this.settings['layout.layout'])) {
-                return 'dark-purple'
-              }
-              if (!['transparent', 'light'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return 'dark-purple'
-            },
-            '.bg-dark': {
-              addClass: ['bg-dark-purple'],
-              removeClass: ['bg-dark']
-            },
-            '.bg-dark-blue': {
-              addClass: ['bg-dark-purple'],
-              removeClass: ['bg-dark-blue']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'purple' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;purple;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple;accent;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'purple;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'accent;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'purple,accent' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary': {
-              addClass: ['bg-primary-purple'],
-              removeClass: ['bg-primary']
-            },
-            '.border-left-primary': {
-              addClass: ['border-left-primary-purple'],
-              removeClass: ['border-left-primary']
-            },
-            '.border-left-accent': {
-              addClass: ['border-left-accent-red'],
-              removeClass: ['border-left-accent']
-            },
-            '.border-left-accent-yellow': {
-              addClass: ['border-left-accent-red'],
-              removeClass: ['border-left-accent-yellow']
-            },
-            '.alert-primary': {
-              addClass: ['alert-primary-purple'],
-              removeClass: ['alert-primary']
-            },
-            '.alert-accent': {
-              addClass: ['alert-accent-red'],
-              removeClass: ['alert-accent']
-            },
-            '.alert-accent-yellow': {
-              addClass: ['alert-accent-red'],
-              removeClass: ['alert-accent-yellow']
-            },
-            '.alert-soft-primary': {
-              addClass: ['alert-soft-primary-purple'],
-              removeClass: ['alert-soft-primary']
-            },
-            '.alert-soft-accent': {
-              addClass: ['alert-soft-accent-red'],
-              removeClass: ['alert-soft-accent']
-            },
-            '.alert-soft-accent-yellow': {
-              addClass: ['alert-soft-accent-red'],
-              removeClass: ['alert-soft-accent-yellow']
-            },
-            '.text-accent': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent']
-            },
-            '.text-accent-yellow': {
-              addClass: ['text-accent-red'],
-              removeClass: ['text-accent-yellow']
-            },
-            '.bg-accent': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent']
-            },
-            '.bg-accent-yellow': {
-              addClass: ['bg-accent-red'],
-              removeClass: ['bg-accent-yellow']
-            },
-            '.btn-accent': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent']
-            },
-            '.btn-accent-yellow': {
-              addClass: ['btn-accent-red'],
-              removeClass: ['btn-accent-yellow']
-            },
-            '.badge-accent': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent']
-            },
-            '.badge-accent-yellow': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent-yellow']
-            }
-          },
-          'dark-blue': {
-            'mainNavbar.navbar': function() {
-              if (['default'].includes(this.settings['layout.layout'])) {
-                return 'dark-blue'
-              }
-              if (!['transparent', 'light'].includes(this.settings['mainNavbar.navbar'])) {
-                return 'transparent'
-              }
-            },
-            'mainDrawer.theme': function() {
-              return 'dark-blue'
-            },
-            '.bg-dark': {
-              addClass: ['bg-dark-blue'],
-              removeClass: ['bg-dark']
-            },
-            '.bg-dark-purple': {
-              addClass: ['bg-dark-blue'],
-              removeClass: ['bg-dark-purple']
-            },
-            '.js-update-chart-line': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-area': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '0.24' }
-              ]
-            },
-            '.js-update-chart-bar': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#locationDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'yellow;primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1;1;0.24' }
-              ]
-            },
-            '#attendanceDoughnutChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;yellow;gray.700;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '#visitsByDeviceChart': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'yellow;gray.300' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'primary;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-progress-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-background-color', 'value': 'yellow;gray' },
-                { 'name': 'data-chart-line-background-opacity', 'value': '1' }
-              ]
-            },
-            '.js-update-chart-line-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'yellow' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.js-update-chart-line-2nd-accent': {
-              setAttribute: [
-                { 'name': 'data-chart-line-border-color', 'value': 'primary,yellow' },
-                { 'name': 'data-chart-line-border-opacity', 'value': '1' },
-              ]
-            },
-            '.bg-primary-purple': {
-              addClass: ['bg-primary'],
-              removeClass: ['bg-primary-purple']
-            },
-            '.border-left-primary-purple': {
-              addClass: ['border-left-primary'],
-              removeClass: ['border-left-primary-purple']
-            },
-            '.border-left-accent': {
-              addClass: ['border-left-accent-yellow'],
-              removeClass: ['border-left-accent']
-            },
-            '.border-left-accent-red': {
-              addClass: ['border-left-accent-yellow'],
-              removeClass: ['border-left-accent-red']
-            },
-            '.alert-primary-purple': {
-              addClass: ['alert-primary'],
-              removeClass: ['alert-primary-purple']
-            },
-            '.alert-accent': {
-              addClass: ['alert-accent-yellow'],
-              removeClass: ['alert-accent']
-            },
-            '.alert-accent-red': {
-              addClass: ['alert-accent-yellow'],
-              removeClass: ['alert-accent-red']
-            },
-            '.alert-soft-primary-purple': {
-              addClass: ['alert-soft-primary'],
-              removeClass: ['alert-soft-primary-purple']
-            },
-            '.alert-soft-accent': {
-              addClass: ['alert-soft-accent-yellow'],
-              removeClass: ['alert-soft-accent']
-            },
-            '.alert-soft-accent-red': {
-              addClass: ['alert-soft-accent-yellow'],
-              removeClass: ['alert-soft-accent-red']
-            },
-            '.text-accent': {
-              addClass: ['text-accent-yellow'],
-              removeClass: ['text-accent']
-            },
-            '.text-accent-red': {
-              addClass: ['text-accent-yellow'],
-              removeClass: ['text-accent-red']
-            },
-            '.bg-accent': {
-              addClass: ['bg-accent-yellow'],
-              removeClass: ['bg-accent']
-            },
-            '.bg-accent-red': {
-              addClass: ['bg-accent-yellow'],
-              removeClass: ['bg-accent-red']
-            },
-            '.btn-accent': {
-              addClass: ['btn-accent-yellow'],
-              removeClass: ['btn-accent']
-            },
-            '.btn-accent-red': {
-              addClass: ['btn-accent-yellow'],
-              removeClass: ['btn-accent-red']
-            },
-            '.badge-accent': {
-              addClass: ['badge-accent-red'],
-              removeClass: ['badge-accent']
-            },
-            '.badge-accent-red': {
-              addClass: ['badge-accent-yellow'],
-              removeClass: ['badge-accent-red']
-            }
-          }
+          'light': lightTheme,
+          'light-dodger-blue': lightDodgerBlueTheme,
+          'dark-dodger-blue': darkDodgerBlueTheme,
+          'light-red': lightRedTheme,
+          'light-yellow': lightYellowTheme,
+          'light-purple': lightPurpleTheme,
+          'dark': darkTheme,
+          'black': blackTheme,
+          'dark-purple': darkPurpleTheme,
+          'dark-blue': darkBlueTheme
         },
         'secondaryNavbar.theme': {
           'light': {
@@ -1779,11 +626,7 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-light', 'bg-white'],
-              removeClass: ['navbar-dark', 'bg-dark', 'bg-body', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple']
-            },
-            '#default-navbar .border-black': {
-              addClass: ['border-default'],
-              removeClass: ['border-black']
+              removeClass: ['navbar-dark', 'bg-dark', 'bg-body', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'navbar-dark-dodger-blue', 'bg-dark-blue', 'bg-dark-purple', 'navbar-light-dodger-blue']
             }
           },
           'transparent': {
@@ -1795,11 +638,7 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-light', 'bg-body'],
-              removeClass: ['navbar-dark', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple']
-            },
-            '#default-navbar .border-black': {
-              addClass: ['border-default'],
-              removeClass: ['border-black']
+              removeClass: ['navbar-dark', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'navbar-dark-dodger-blue', 'bg-dark-blue', 'bg-dark-purple', 'navbar-light-dodger-blue']
             }
           },
           'dark': {
@@ -1808,11 +647,7 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-dark', 'bg-dark'],
-              removeClass: ['navbar-light', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2']
-            },
-            '#default-navbar .border-default': {
-              addClass: ['border-black'],
-              removeClass: ['border-default']
+              removeClass: ['navbar-light', 'navbar-light-dodger-blue', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'navbar-dark-dodger-blue', 'bg-white', 'bg-body', 'border-bottom-2']
             }
           },
           'dark-mode': {
@@ -1821,11 +656,7 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-dark', 'bg-body'],
-              removeClass: ['navbar-light', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'border-bottom-2']
-            },
-            '#default-navbar .border-default': {
-              addClass: ['border-black'],
-              removeClass: ['border-default']
+              removeClass: ['navbar-light', 'navbar-light-dodger-blue', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'navbar-dark-dodger-blue', 'bg-white', 'border-bottom-2']
             }
           },
           'dark-blue': {
@@ -1834,11 +665,7 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-dark', 'navbar-dark-blue'],
-              removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2']
-            },
-            '#default-navbar .border-default': {
-              addClass: ['border-black'],
-              removeClass: ['border-default']
+              removeClass: ['navbar-light', 'navbar-light-dodger-blue', 'bg-dark', 'navbar-dark-purple', 'navbar-black', 'navbar-dark-dodger-blue', 'bg-white', 'bg-body', 'border-bottom-2']
             }
           },
           'dark-purple': {
@@ -1847,11 +674,7 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-dark', 'navbar-dark-purple'],
-              removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-blue', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2']
-            },
-            '#default-navbar .border-default': {
-              addClass: ['border-black'],
-              removeClass: ['border-default']
+              removeClass: ['navbar-light', 'navbar-light-dodger-blue', 'bg-dark', 'navbar-dark-blue', 'navbar-black', 'navbar-dark-dodger-blue', 'bg-white', 'bg-body', 'border-bottom-2']
             }
           },
           'black': {
@@ -1860,13 +683,30 @@ export default {
             },
             '#default-navbar': {
               addClass: ['navbar-dark', 'navbar-black'],
-              removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'bg-white', 'bg-body', 'border-bottom-2']
-            },
-            '#default-navbar .border-default': {
-              addClass: ['border-black'],
-              removeClass: ['border-default']
+              removeClass: ['navbar-light', 'navbar-light-dodger-blue', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-dark-dodger-blue', 'bg-white', 'bg-body', 'border-bottom-2']
             }
-          }
+          },
+          'light-dodger-blue': {
+            '#default-navbar .navbar-brand img': {
+              src: navbarTransparentLogo,
+            },
+            '.layout-default #default-navbar': {
+              addClass: ['border-bottom-2']
+            },
+            '#default-navbar': {
+              addClass: ['navbar-light', 'bg-white', 'navbar-light-dodger-blue'],
+              removeClass: ['navbar-dark', 'bg-dark', 'bg-body', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-dark-blue', 'bg-dark-purple', 'navbar-dark-dodger-blue']
+            }
+          },
+          'dark-dodger-blue': {
+            '#default-navbar .navbar-brand img': {
+              src: navbarTransparentLogo,
+            },
+            '#default-navbar': {
+              addClass: ['navbar-dark', 'navbar-dark-dodger-blue'],
+              removeClass: ['navbar-light', 'bg-dark', 'navbar-dark-blue', 'navbar-dark-purple', 'navbar-black', 'bg-white', 'bg-body', 'border-bottom-2', 'navbar-light-dodger-blue']
+            }
+          },
         }
       }
     },

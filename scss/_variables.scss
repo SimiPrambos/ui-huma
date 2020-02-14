@@ -48,6 +48,9 @@ $purple-gradient:                   linear-gradient(180deg, #9A55FE 0%, #753EFD 
 $primary-gradient:                  linear-gradient(128deg, #1E6DBD 0%, #3287DB 100%) !default;
 $primary-purple:                    #824EE1 !default;
 $dark-blue:                         #0C2440 !default;
+$dodger-blue:                       #5567FF !default;
+$electric-violet:                   #9C42FF !default;
+$pickled-bluewood:                  #303956 !default;
 $black:                             #272C33 !default;
 
 $shadow-baseline-color: $black !default;
@@ -58,8 +61,15 @@ $theme-colors: (
   "accent": $accent,
   "accent-red": $accent-red,
   "accent-yellow": $accent-yellow,
+  "accent-dodger-blue": $dodger-blue,
+  "accent-pickled-bluewood": $pickled-bluewood,
+  "accent-electric-violet": $electric-violet,
   "primary-purple": $primary-purple,
-  "primary-light": $primary-light
+  "primary-red": $accent-red,
+  "primary-yellow": $accent-yellow,
+  "primary-light": $primary-light,
+  "primary-dodger-blue": $dodger-blue,
+  "primary-pickled-bluewood": $pickled-bluewood,
 ) !default;
 
 // OTHER COLOR
@@ -398,7 +408,7 @@ $sm-dark-blue-activebuttonbg-button-color:     $primary-purple !default;
 $sm-dark-blue-activebuttonbg-icon-color:       $primary-purple !default;
 
 // hover menu button
-$sm-dark-blue-hover-button-bg:           #0A1D33 !default;
+$sm-dark-blue-hover-button-bg:           transparent !default;
 $sm-dark-blue-hover-icon-color:          white !default;
 
 // open menu
@@ -406,6 +416,13 @@ $sm-dark-blue-open-button-color:         #8A9199 !default;
 $sm-dark-blue-open-icon-color:           rgba(#ffffff, .5) !default;
 $sm-dark-blue-open-toggle-color:         rgba(#ffffff, .5) !default;
 $sm-dark-blue-open-bg:                   #0A1D33 !default;
+
+//////////////////////////////
+// SIDEBAR DARK DODGER BLUE //
+//////////////////////////////
+
+$sidebar-dark-dodger-blue-border-color:         #212A45 !default;
+$sm-dark-dodger-blue-open-bg:            #212A45 !default;
 
 ////////////////////////
 // SIDEBAR LIGHT SKIN //

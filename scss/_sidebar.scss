@@ -4,6 +4,11 @@
 // DRAWER //
 ////////////
 
+.mdk-drawer {
+  // fix mozilla firefox issue
+  z-index: 1;
+}
+
 .mdk-drawer__content {
   background: transparent;
 }
@@ -18,10 +23,13 @@
 .sidebar-brand {
   margin-bottom: 0;
   height: $navbar-height;
+  flex-direction: column;
+  padding: 2.5rem 0;
 }
 
 .sidebar-brand-icon {
   display: flex;
+  width: 40px;
 }
 
 //////////////////
