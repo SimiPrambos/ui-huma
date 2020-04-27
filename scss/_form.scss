@@ -10,9 +10,9 @@ label {
 //   }
 // }
 
-.form-control:focus {
-  box-shadow: none !important;
-}
+// .form-control:focus {
+//   box-shadow: none !important;
+// }
 
 .form-control-rounded {
   border-radius: 20rem;
@@ -50,9 +50,12 @@ label {
 }
 
 .form-label {
-  text-transform: uppercase;
-  font-size: 0.707rem;
-  color: rgba($body-color, .7);
+  color: $label-color;
+  text-transform: $label-text-transform;
+  font-size: $label-font-size;
+  font-family: $label-font-family;
+  font-weight: $label-font-weight;
+  letter-spacing: $label-letter-spacing;
 }
 
 .card-form {
@@ -66,10 +69,19 @@ label {
   &__body {
     background-color: lighten($body-bg, 1%);
 
+    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+    
+    @include media-breakpoint-up(sm) {
+      @include border-radius($card-inner-border-radius 0 0 $card-inner-border-radius);
+    }
+
     label:not([class]) {
-      text-transform: uppercase;
-      font-size: 0.707rem;
-      color: rgba($body-color, .7);
+      color: $label-color;
+      text-transform: $label-text-transform;
+      font-size: $label-font-size;
+      font-family: $label-font-family;
+      font-weight: $label-font-weight;
+      letter-spacing: $label-letter-spacing;
     }
   }
 }

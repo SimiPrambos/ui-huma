@@ -284,12 +284,18 @@
   color: white !important;
 }
 
+.text-shadow {
+  text-shadow: rgba($card-shadow-base-color, 0.2) 0px 9px 10px;
+}
+
 .text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
   white-space: nowrap;
 }
+
+.text-headings { font-family: $headings-font-family !important; }
 
 .lh-24pt {
   line-height: 1.5rem;

@@ -1,29 +1,28 @@
 .layout-boxed {
   @include media-breakpoint-up(lg) {
     > .mdk-drawer-layout {
-      padding: 2rem 0;
+      padding: 1rem 0;
     }
   }
   .page-content {
     @include media-breakpoint-up(lg) {
       @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
-      margin: 0 2rem 0 1rem;
+      margin: 0 1rem 0 0;
       border-radius: 10px;
     }
-    background-color: white;
+    // background-color: white;
     overflow: hidden;
   }
 
-  .card {
-    box-shadow: none;
-  }
+  // .card {
+  //   box-shadow: none;
+  // }
 
   #default-drawer {
 
     @include media-breakpoint-up(lg) {
       .mdk-drawer__content {
-        padding-left: .5rem;
-        padding-top: 2rem;
+        padding-top: 1rem;
       }
       .sidebar {
         background-color: transparent !important;
@@ -52,14 +51,14 @@
 
       @include media-breakpoint-up(lg) {
         border-radius: 10px;
-        margin-left: 1.5rem;
+        margin-left: 1rem;
       }
 
       &-icon {
         margin-left: 1rem;
         margin-right: .5rem;
         margin-bottom: 0;
-        width: 2rem;
+        width: 2.5rem;
       }
     }
 
@@ -74,31 +73,31 @@
     }
   }
 
-  .navbar-light {
-    background-color: white !important;
-    box-shadow: none !important;
-    border-bottom: 1px solid $border-color;
-  }
+  // .navbar-light {
+  //   background-color: white !important;
+  //   box-shadow: none !important;
+  //   border-bottom: 1px solid $border-color;
+  // }
 
-  .navbar-search {
-    background-color: transparent !important;
-    border-color: transparent !important;
-    &:focus {
-      background-color: transparent !important;
-    }
-  }
+  // .navbar-search {
+  //   background-color: transparent !important;
+  //   border-color: transparent !important;
+  //   &:focus {
+  //     background-color: transparent !important;
+  //   }
+  // }
 
-  .container,
-  .container-fluid {
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
+  // .container,
+  // .container-fluid {
+  //   padding-right: 2rem;
+  //   padding-left: 2rem;
+  // }
 
-  .container-fluid {
-    max-width: none;
-  }
+  // .container-fluid {
+  //   max-width: none;
+  // }
 
-  .page-separator__text {
-    background-color: white;
-  }
+  // .page-separator__text {
+  //   background-color: white;
+  // }
 }

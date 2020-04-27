@@ -29,30 +29,6 @@
   }
 }
 
-////////////////////////////
-// DARK BACKGROUND HEADER //
-////////////////////////////
-
-.mdk-header--bg-dark .mdk-header__bg-front::after {
-  background-color: rgba($dark, .9);
-}
-
-/////////////////////////////
-// LIGHT BACKGROUND HEADER //
-/////////////////////////////
-
-.mdk-header--bg-light .mdk-header__bg-front::after {
-  background-color: rgba(255, 255, 255, .65);
-}
-
-///////////////////////////////
-// PRIMARY BACKGROUND HEADER //
-///////////////////////////////
-
-.mdk-header--bg-primary .mdk-header__bg-front::after {
-  background-color: rgba($primary, .9);
-}
-
 ////////////////////////////////
 // GRADIENT BACKGROUND HEADER //
 ////////////////////////////////
@@ -65,4 +41,10 @@
 .mdk-header--bg-gradient-purple .mdk-header__bg-front::after {
   background-image: linear-gradient(-128deg, #8A4182 0%, #3289DC 100%);
   opacity: .9;
+}
+
+@each $color, $value in $theme-colors {
+  .mdk-header--bg-#{$color} .mdk-header__bg-front::after {
+    background-color: rgba($value, .9);
+  }
 }

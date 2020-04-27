@@ -18,16 +18,21 @@
   }
   &__text {
     display: inline-flex;
-    padding: 0 .5rem;
+    padding-right: .5rem;
     border-radius: $border-radius;
     background-color: $body-bg;
     max-width: 90%;
     text-transform: uppercase;
     font-size: .9375rem;
-    color: rgba($body-color, .5);
+    color: $headings-color;
     font-weight: $headings-font-weight;
     letter-spacing: 2px;
     font-family: $headings-font-family;
+    
+    .justify-content-center & {
+      padding-left: .5rem;
+    }
+
     @include hover {
       text-decoration: none;
     }

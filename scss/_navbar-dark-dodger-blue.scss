@@ -23,6 +23,10 @@
     }
   }
 
+  .navbar-avatar {
+    background-color: $sm-dark-dodger-blue-open-bg;
+  }
+
   .navbar-btn {
     @include button-variant($sm-dark-dodger-blue-open-bg, $sm-dark-dodger-blue-open-bg);
   }

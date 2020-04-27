@@ -3,11 +3,12 @@
 ////////////////
 
 .list-group {
-  margin-bottom: $spacer;
   @if $enable-card-shadow {
-    @include mdc-elevation(1, $card-shadow-base-color);
+    @include mdc-elevation(3, $card-shadow-base-color, $shadow-opacity-boost);
   }
+
   @include border-radius($list-group-border-radius);
+  margin-bottom: $spacer;
 }
 .list-group-flush {
   #{$mdc-elevation-property}: none;

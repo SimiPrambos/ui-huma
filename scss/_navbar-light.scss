@@ -14,4 +14,10 @@
   .navbar-search {
     @extend .search-form--light;
   }
+
+  .navbar-avatar {
+    background-color: #EDF0F2;
+    border: $input-btn-border-width solid #EDF0F2;
+    color: $headings-color;
+  }
 }

@@ -15,11 +15,13 @@
   }
 }
 
-.mdk-box--bg-dark .mdk-box__bg-front::after {
-  background-color: rgba($dark, .9);
-}
-
 .mdk-box--bg-gradient-primary .mdk-box__bg-front::after {
   background-image: $primary-gradient;
   opacity: .9;
+}
+
+@each $color, $value in $theme-colors {
+  .mdk-box--bg-#{$color} .mdk-box__bg-front::after {
+    background-color: rgba($value, .9);
+  }
 }

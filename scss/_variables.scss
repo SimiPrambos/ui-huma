@@ -85,7 +85,7 @@ $rating:                            #f9c32c !default;
 
 // BORDER
 $border-color:                      #E9EDF2 !default;
-$border-radius-lg:                  .25rem !default;
+$border-radius-lg:                  .5rem !default;
 
 // TABLE
 $table-cell-padding:                .75rem 1rem !default;
@@ -138,7 +138,7 @@ $small-font-size:                   .707rem !default;
 
 // Stack effect
 $stack-bg:                          #ffffff !default;
-$stack-box-shadow:                  0 2px 0 rgba(0, 0, 0, .07), 0px 2px 1px -1px rgba(48, 56, 64, 0.2) inset, 0px 1px 1px 0px rgba(48, 56, 64, 0.14) inset, 0px 1px 3px 0px rgba(48, 56, 64, 0.12) inset;
+$stack-box-shadow:                  0 2px 0 rgba(0,0,0, 0.07), 0px 2px 1px -1px rgba(223, 226, 230, 1) inset, 0px 1px 2px 0px rgba(223, 226, 230, 0.14) inset, 0px 1px 3px 0px rgba(48, 56, 64, 0.12) inset !default;
 
 // page separator
 $page-separator-mask-color:         #ffffff !default;
@@ -157,8 +157,9 @@ $enable-card-shadow:                true !default;
 $card-shadow-base-color:            $shadow-baseline-color !default;
 $card-border-color:                 #DFE2E6 !default;
 $card-border-width:                 1px !default;
+$card-border-radius:                $border-radius-lg !default;
 $card-inner-border-width:           1px !default;
-$card-inner-border-radius:          .25rem !default;
+$card-inner-border-radius:          $border-radius-lg !default;
 $card-cap-bg:                       #ffffff !default;
 $card-columns-gap:                  $grid-gutter-width !default;
 $card-columns-margin:               $spacer !default;
@@ -198,11 +199,18 @@ $nav-tabs-link-active-border-color: transparent transparent $nav-tabs-link-activ
 $nav-tabs-link-hover-border-color:  transparent transparent $nav-tabs-border-color !default;
 
 // BREADCRUMB
-$breadcrumb-padding-x:              1.25rem !default;
-$breadcrumb-bg:                     transparent !default;
-$breadcrumb-divider-color:          #B8BDC2 !default;
-$breadcrumb-active-color:           rgba($body-color, .5) !default;
-$breadcrumb-font-size:              .707rem !default;
+$breadcrumb-padding-x:              0 !default;
+$breadcrumb-padding-y:              0 !default;
+$breadcrumb-item-padding:           0 !default;
+$breadcrumb-bg:                     transparent;
+$breadcrumb-color:                  rgba($body-color, .5) !default;
+$breadcrumb-divider-color:          rgba($body-color, .5) !default;
+$breadcrumb-active-color:           rgba($body-color, .35) !default;
+$breadcrumb-font-size:              $small-font-size !default;
+$breadcrumb-font-weight:            $headings-font-weight !default;
+$breadcrumb-font-family:            $headings-font-family !default;
+$breadcrumb-text-transform:         uppercase !default;
+$breadcrumb-letter-spacing:         2px !default;
 
 // DROPDOWN
 $dropdown-margin-top:               calc(.125rem + 8px) !default;
@@ -225,13 +233,23 @@ $dropdown-item-padding-y:           .2rem !default;
 $dropdown-item-padding-x:           1rem !default;
 
 // INPUT
-$input-bg:                          #EDF0F2 !default;
+$input-bg:                          white !default;
 $input-color:                       $body-color !default;
-$input-border-color:                $input-bg !default;
-$input-focus-bg:                    darken($input-bg, 2%) !default;
+$input-border-color:                #EDF0F2 !default;
+$input-focus-bg:                    white !default;
 $input-focus-border-color:          $input-focus-bg !default;
 $input-placeholder-color:           #949595 !default;
 $input-group-addon-bg:              $input-bg !default;
+$input-btn-focus-width:             1px !default;
+$input-btn-focus-color:             $primary !default;
+
+// label
+$label-color:                       $headings-color !default;
+$label-text-transform:              uppercase !default;
+$label-font-size:                   $small-font-size !default;
+$label-font-family:                 $headings-font-family !default;
+$label-font-weight:                 $headings-font-weight !default;
+$label-letter-spacing:              2px !default;
 
 // input normal
 $input-btn-padding-y: .5rem !default;
@@ -253,7 +271,7 @@ $custom-select-bg:                          $input-bg !default;
 $custom-select-color:                       $input-color !default;
 $custom-select-indicator-color:             rgba($body-color, .5) !default;
 $custom-select-focus-border-color:          $primary !default;
-$custom-control-indicator-border-color:     $input-bg !default;
+$custom-control-indicator-border-color:     $input-border-color !default;
 $custom-control-indicator-focus-box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $primary !default;
 $custom-control-active-indicator-bg:        lighten($primary, 30%) !default;
 $custom-file-button-bg:                     $secondary !default;
@@ -266,7 +284,7 @@ $custom-file-button-color:                  #fff !default;
 $header-shadow-base-color:          $body-color !default;
 
 $navbar-height:                     64px !default;
-$navbar-item-spacing:               1.5rem !default;
+$navbar-item-spacing:               1rem !default;
 $navbar-dark-color:                 #858D94 !default;
 $navbar-dark-hover-color:           #ffffff !default;
 $navbar-dark-border-color:          rgba(#ffffff, .24) !default;
@@ -308,6 +326,12 @@ $sm-icon-spacing-x:                 .5rem !default;
 $sidebar-spacing:                   1.5rem !default;
 $sidebar-spacing-x:                 $sidebar-spacing !default;
 $sm-indent-spacing:                 2.1875rem !default;
+
+$sidebar-heading-font-size:         .9rem !default;
+$sidebar-heading-font-weight:       $headings-font-weight !default;
+$sidebar-heading-font-family:       $headings-font-family !default;
+$sidebar-heading-text-transform:    uppercase !default;
+$sidebar-heading-letter-spacing:    2px !default;
 
 ///////////////////////
 // SIDEBAR DARK SKIN //
@@ -460,6 +484,8 @@ $sm-light-active-button-color:      #8A9199 !default;
 /////////////////////
 
 $sidebar-brand-size:                1.625rem !default;
+$sidebar-brand-icon-width:          40px !default;
+$sidebar-brand-icon-height:         $sidebar-brand-icon-width !default;
 
 // menu buttons
 $sm-button-font-weight:             500 !default;
@@ -475,7 +501,10 @@ $courses-modal-active-nav-link:     rgba($body-color, .7) !default;
 // page num
 $page-num-tip-bg:                   #D2D5D9 !default;
 $page-num-tip-border-color:         #F5F7FA !default;
-$page-num-border-color:             #d4d4d4 !default;
+$page-num-border-width:             2px !default;
+$page-num-border-color:             $border-color !default;
+$page-num-bg:                       $body-bg !default;
+$page-num-color:                    $headings-color !default;
 
 //////////////
 // DEFAULTS //

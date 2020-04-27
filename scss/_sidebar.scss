@@ -29,7 +29,8 @@
 
 .sidebar-brand-icon {
   display: flex;
-  width: 40px;
+  width: $sidebar-brand-icon-width;
+  height: $sidebar-brand-icon-height;
 }
 
 //////////////////
@@ -162,8 +163,4 @@
 .sidebar-account {
   border-radius: 100px;
   @include mdc-elevation(1, $shadow-baseline-color, $shadow-opacity-boost);
-}
-
-.sidebar .search-form {
-  border-radius: 100px;
 }

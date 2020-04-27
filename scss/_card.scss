@@ -70,8 +70,31 @@
   padding: $card-spacer-x/2 $card-spacer-x;
 }
 
-.card-sm .card-body {
-  padding: .5rem;
+.card-sm {
+  .card-body,
+  .card-footer {
+    padding: 0.625rem 0.75rem;
+  }
+}
+
+.card-lg {
+  .card-body,
+  .card-footer {
+    padding: 1.25rem;
+  }
+}
+
+.card-title {
+  line-height: 1.25;
+  margin-bottom: 0;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  color: $headings-color;
+}
+.card-subtitle {
+  @include font-size($small-font-size);
+  font-weight: $font-weight-normal;
+  margin-top: 0;
 }
 
 ////////////////
@@ -205,6 +228,10 @@
   &:last-child {
     @include border-bottom-radius($card-inner-border-radius);
   }
+}
+
+.card > .fullbleed {
+  @include border-radius($card-border-radius);
 }
 
 .card-img-cover {

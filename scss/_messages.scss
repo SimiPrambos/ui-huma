@@ -1,5 +1,8 @@
 .app-messages {
+  height: 100%;
   overflow: hidden;
+  position: relative;
+
   .mdk-drawer-layout,
   .mdk-header-layout,
   .mdk-header-layout__content,

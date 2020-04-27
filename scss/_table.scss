@@ -26,8 +26,8 @@
 
   &.asc,
   &.desc {
-    color: $body-color;
     text-decoration: underline;
+    font-weight: $headings-font-weight;
   }
 
   & + .sort {
@@ -51,9 +51,12 @@
 }
 
 .table thead th {
-  font-size: .825rem;
-  text-transform: uppercase;
-  color: rgba($body-color, .7);
+  color: $label-color;
+  text-transform: $label-text-transform;
+  font-size: $label-font-size;
+  font-family: $label-font-family;
+  font-weight: $label-font-weight;
+  letter-spacing: $label-letter-spacing;
 }
 
 .table tbody .selected > td {

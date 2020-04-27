@@ -15,6 +15,7 @@
   } @else {
     border-radius: 0;
   }
+  @include box-shadow($input-box-shadow);
   .form-control {
     border-color: transparent;
     background-color: transparent;

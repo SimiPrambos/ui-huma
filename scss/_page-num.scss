@@ -2,8 +2,8 @@
   border-radius: 100%;
   width: 2.5rem;
   height: 2.5rem;
-  border: 1px solid $page-num-border-color;
-  background-color: $body-bg;
+  border: $page-num-border-width solid $page-num-border-color;
+  background-color: $page-num-bg;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
@@ -12,8 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $page-num-color;
   [href] & {
-    color: $headings-color;
+    color: $page-num-color;
   }
 }
 

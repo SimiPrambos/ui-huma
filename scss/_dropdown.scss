@@ -140,10 +140,12 @@
 ////////////////////////////////////////////////////
 
 @include media-breakpoint-down(sm) {
-  .dropdown-full-xs {
+  .dropdown-xs-down-full {
     position: initial !important;
     .dropdown-menu {
-      width: 100%;
+      left: 0;
+      right: 0;
+      width: 100% !important;
       border-radius: 0;
       &::before,
       &::after {
