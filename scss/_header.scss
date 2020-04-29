@@ -43,6 +43,10 @@
   opacity: .9;
 }
 
+.mdk-header--bg-white .mdk-header__bg-front::after {
+  background-color: rgba(white, .9);
+}
+
 @each $color, $value in $theme-colors {
   .mdk-header--bg-#{$color} .mdk-header__bg-front::after {
     background-color: rgba($value, .9);
