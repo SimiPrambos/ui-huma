@@ -25,3 +25,9 @@
     background-color: rgba($value, .9);
   }
 }
+
+@each $value in (25, 35, 45, 90, 95) {
+  .mdk-box--bg-white-#{$value} .mdk-box__bg-front::after {
+    background-color: rgba(white, $value/100);
+  }
+}

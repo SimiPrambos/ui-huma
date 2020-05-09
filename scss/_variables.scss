@@ -82,6 +82,7 @@ $body-bg:                           #F5F7FA !default;
 $link-color:                        rgba($body-color, .7) !default;
 // $link-color:                        rgba(#2C84DD, .85) !default;
 $rating:                            #f9c32c !default;
+$alt:                               white !default;
 
 // BORDER
 $border-color:                      #E9EDF2 !default;
@@ -101,12 +102,13 @@ $alert-padding-x: .5rem !default;
 
 // FONT
 $font-family-base:                  Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-size-base:                    1rem !default; // Assumes the browser default, typically `16px`
-// $font-size-base: .9375rem !default;
-$font-weight-bold:                  500 !default;
 
-// $headings-font-family:              "Oswald", "Helvetica Neue", Arial, sans-serif !default;
-// $headings-font-weight:              500 !default;
+// $font-size-base:                    1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base:                    .8125rem !default;
+$font-size-lg:                      $font-size-base * 1.5 !default;
+$font-size-sm:                      $font-size-base * .875 !default;
+
+$font-weight-bold:                  500 !default;
 
 $headings-font-family:  "Exo 2", "Helvetica Neue", Arial, sans-serif !default;
 $headings-font-weight:  600 !default;
@@ -134,7 +136,10 @@ $display1-line-height:              1.25 !default;
 $lead-font-size:                    ($font-size-base * 1.125) !default;
 $lead-font-weight:                  400 !default;
 $lead-line-height:                  1.556 !default;
-$small-font-size:                   .707rem !default;
+
+// $small-font-size:                   .707rem !default;
+$small-font-size:                   $font-size-base !default;
+$small-line-height:                 1.5 !default;
 
 // Stack effect
 $stack-bg:                          #ffffff !default;
@@ -165,6 +170,13 @@ $card-columns-gap:                  $grid-gutter-width !default;
 $card-columns-margin:               $spacer !default;
 $card-spacer-y:                     1rem !default;
 $card-spacer-x:                     1rem !default;
+
+// CARD TITLE
+$card-title-font-size:              1rem !default;
+$card-title-line-height:            1.25 !default;
+$card-title-font-family:            $headings-font-family !default;
+$card-title-font-weight:            $headings-font-weight !default;
+$card-title-color:                  $headings-color !default;
 
 // TOOLTIP
 $tooltip-margin:                    .5rem !default;
@@ -219,6 +231,7 @@ $dropdown-border-color:             transparent !default;
 $dropdown-border-radius:            .1875rem !default;
 $dropdown-box-shadow-base-color:    $shadow-baseline-color !default;
 $dropdown-transition:               opacity .2s cubic-bezier(.3, .5, .5, 1), margin .2s cubic-bezier(.1, .3, .8, 1), visibility .3s ease !default;
+$dropdown-font-size:                .875rem !default;
 
 $dropdown-link-color:               rgba($black, .7) !default;
 $dropdown-link-disabled-color:      rgba($black, .3) !default;
@@ -229,8 +242,8 @@ $dropdown-link-active-color:        $black !default;
 $dropdown-link-active-bg:           transparent !default;
 $dropdown-link-active-font-weight:  bold !default;
 
-$dropdown-item-padding-y:           .2rem !default;
-$dropdown-item-padding-x:           1rem !default;
+$dropdown-item-padding-y:           .25rem !default;
+$dropdown-item-padding-x:           1.25rem !default;
 
 // INPUT
 $input-bg:                          white !default;
@@ -252,16 +265,20 @@ $label-font-weight:                 $headings-font-weight !default;
 $label-letter-spacing:              2px !default;
 
 // input normal
-$input-btn-padding-y: .5rem !default;
-$input-btn-padding-x: .75rem !default;
+$input-btn-font-size:               $font-size-base !default;
+$input-btn-padding-y:               .5rem !default;
+$input-btn-padding-x:               .75rem !default;
 
 // button normal
-$btn-font-size-base: 1.063rem !default;
-$btn-padding-y: .5rem !default;
-$btn-padding-x: 1rem !default;
+$btn-padding-y:                     .5rem !default;
+$btn-padding-x:                     1rem !default;
+$btn-font-family:                   "Exo 2", "Helvetica Neue", Arial, sans-serif !default;
+$btn-font-weight:                   600 !default;
+$btn-text-transform:                uppercase !default;
 
 // button large
-$btn-padding-x-lg: 2rem !default;
+$btn-padding-x-lg:                  2rem !default;
+$input-btn-line-height-lg:          1.75 !default;
 
 // CUSTOM SELECT
 // temporary fix for postcss-inline-rtl order issue 
@@ -531,19 +548,9 @@ $drawer-layout-container-max-widths: (
 
 $grid-breakpoints: (
   xs: 0,
-  i8: 374px,
-  i8-plus: 413px,
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
   xxl: 1366px
-);
-
-$container-max-widths: (
-  sm: 520px,
-  md: 720px,
-  lg: 960px,
-  xl: 960px,
-  xxl: 1120px
 );

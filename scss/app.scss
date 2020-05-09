@@ -103,6 +103,7 @@
 @import './alert';
 @import './button';
 @import './card';
+@import './card-feedback';
 @import './card-header-tabs-basic';
 @import './popover';
 @import './image';
@@ -178,6 +179,9 @@
 @import './posts';
 @import './menu-modal';
 @import './messages';
+
+@import './login-image';
+@import './login-centered-boxed';
 
 .ui .page__container {
   max-width: 944px;

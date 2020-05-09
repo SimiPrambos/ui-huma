@@ -81,12 +81,6 @@
       }
 
       @include media-breakpoint-down($breakpoint) {
-        > .container,
-        > .container-fluid {
-          .navbar-brand {
-            padding-left: $navbar-padding-x;
-          }
-        }
         &.navbar-list {
           height: auto;
           .navbar-list__item {
@@ -126,20 +120,6 @@
         }
       }
     }
-  }
-}
-
-@include media-breakpoint-up(sm) {
-  .navbar-nav > .active > .nav-link::before,
-  .navbar-nav .nav-link.active::before {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background-color: $primary;
-    content: " ";
-    bottom: -3px;
   }
 }
 
@@ -206,14 +186,16 @@
   }
 }
 
-.navbar-nav > .active > .nav-link::before,
-.navbar-nav .nav-link.active::before {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  background-color: $primary;
-  content: " ";
-  bottom: 0;
+.navbar--active-undeline {
+  .navbar-nav > .active > .nav-link::before,
+  .navbar-nav .nav-link.active::before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $primary;
+    content: " ";
+    bottom: 0;
+  }
 }

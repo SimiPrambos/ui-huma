@@ -162,7 +162,7 @@
 // STACKING //
 //////////////
 
-@each $value in (0, 1) {
+@each $value in (0, 1, 2) {
   .z-#{$value} {
     z-index: $value;
   }
@@ -182,7 +182,7 @@
   background-color: #fff !important;
 }
 .bg-alt {
-  background: white;
+  background: $alt !important;
 }
 .bg-body {
   background-color: $body-bg !important;

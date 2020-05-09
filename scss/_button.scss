@@ -6,10 +6,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  &:not(.btn-lg):not(.btn-sm) {
-    font-size: $btn-font-size-base;
-  }
+  text-transform: $btn-text-transform;
 
   &--raised {
     @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);

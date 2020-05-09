@@ -25,6 +25,14 @@
     @include mdc-elevation(10, $card-shadow-base-color, $shadow-opacity-boost);
   }
 
+  &--scaled {
+    transform: scale(1.05);
+  }
+
+  &--transparent {
+    background-color: rgba(white, .9);
+  }
+
   &--connect {
     position: relative;
     &::after {
@@ -85,12 +93,14 @@
 }
 
 .card-title {
-  line-height: 1.25;
+  font-size: $card-title-font-size;
+  font-family: $card-title-font-family;
+  font-weight: $card-title-font-weight;
+  color: $card-title-color;
+  line-height: $card-title-line-height;
   margin-bottom: 0;
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
-  color: $headings-color;
 }
+
 .card-subtitle {
   @include font-size($small-font-size);
   font-weight: $font-weight-normal;

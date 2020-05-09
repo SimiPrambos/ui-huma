@@ -33,6 +33,10 @@
       padding-left: .5rem;
     }
 
+    .bg-alt & {
+      background-color: $alt;
+    }
+
     @include hover {
       text-decoration: none;
     }

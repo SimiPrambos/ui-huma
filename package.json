@@ -1,6 +1,6 @@
 {
   "name": "ui-huma",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "description": "Huma Theme UI",
   "author": "FrontendMatter <contact@frontendmatter.com> (http://www.frontendmatter.com)",
@@ -27,7 +27,7 @@
     "fm-plugin-listjs": "^1.0.2",
     "fm-plugin-nestable": "^1.0.0",
     "fm-plugin-quill": "^1.0.1",
-    "fm-plugin-select2": "^1.0.0",
+    "fm-plugin-select2": "^1.0.1",
     "fm-plugin-sweetalert": "^1.0.0",
     "fm-plugin-toastr": "^1.0.0",
     "fm-plugin-touchspin": "^1.0.0",

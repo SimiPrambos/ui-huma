@@ -6,8 +6,18 @@
   margin-bottom: $spacer;
   height: auto;
 
+  &--shadow {
+    transition: .25s box-shadow;
+  }
+
+  &--shadow-show {
+    @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
+    border-color: transparent !important;
+  }
+
   &--shadow::after {
-    box-shadow: inset 0px 5px 6px -3px rgba($header-shadow-base-color, .4);
+    // box-shadow: inset 0px 5px 6px -3px rgba($header-shadow-base-color, .4);
+    display: none;
   }
 
   &__bg-front {

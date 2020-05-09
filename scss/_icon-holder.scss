@@ -38,4 +38,9 @@
   &--outline-muted {
     @include icon-holder-outline-variant($text-muted);
   }
+  &--light {
+    @include plain-hover-focus() {
+      color: rgba($black, .7);
+    }
+  }
 }

@@ -57,12 +57,6 @@
     .nav-link.show,
     .nav-link.active {
       color: $navbar-dark-active-color;
-
-      @include media-breakpoint-up(sm) {
-        &::before {
-          background-color: white;
-        }
-      }
     }
   }
 
