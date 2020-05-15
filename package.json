@@ -1,6 +1,6 @@
 {
   "name": "ui-huma",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "description": "Huma Theme UI",
   "author": "FrontendMatter <contact@frontendmatter.com> (http://www.frontendmatter.com)",
@@ -8,7 +8,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
     "@material/elevation": "^0.43.0",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.0",
     "bootstrap-custom-checkbox-toggle": "^1.0.0",
     "bv-form-image-group": "^1.0.0",
     "corner-ribbon": "^1.0.0",
