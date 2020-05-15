@@ -28,16 +28,16 @@
       overflow-x: hidden; 
       text-overflow: ellipsis;
     }
-    @include media-breakpoint-down(lg) {
-      &__meta {
-        margin-top: .4375rem;
-        padding-top: .4375rem;
-        border-top: 1px solid $border-color;
-        width: 100%;
-        order: 3;
-        align-items: flex-start;
-      }
+
+    @mixin wrap-meta-properties {
+      margin-top: .4375rem;
+      padding-top: .4375rem;
+      border-top: 1px solid $border-color;
+      width: 100%;
+      order: 3;
+      align-items: flex-start;
     }
+
     @include media-breakpoint-up(sm) {
       &__tag {
         width: 100px;
@@ -49,6 +49,30 @@
       .card-title,
       .card-title > a {
         max-width: 300px;
+      }
+    }
+
+    @include media-breakpoint-down(lg) {
+      &__meta {
+        @include wrap-meta-properties();
+      }
+    }
+
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-down($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        &--wrap#{$infix} &__meta {
+          @include wrap-meta-properties();
+        }
+        &--wrap#{$infix} &__tag,
+        &--wrap#{$infix} &__date,
+        &--wrap#{$infix} &__title,
+        &--wrap#{$infix} .card-title,
+        &--wrap#{$infix} .card-title > a {
+          width: auto;
+          max-width: none;
+        }
       }
     }
   }

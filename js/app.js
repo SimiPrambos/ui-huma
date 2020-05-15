@@ -2,8 +2,10 @@ import './main'
 import './perfect-scrollbar'
 import './preloader'
 import './sidebar'
-// import './popover'
-// import './mdk-carousel-control'
+import './dropdown-tooltip'
+import './popover'
+import './overlay'
+import './mdk-carousel-control'
 // import './read-more'
 
 (function() {

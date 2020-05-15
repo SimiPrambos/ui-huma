@@ -12,10 +12,19 @@
     $(e.target).data('bs.popover')._activeTrigger.click = false
   })
 
+  const isDrawerLayout = !!document.querySelector('.mdk-drawer-layout__content')
+  const isHeaderLayout = !!document.querySelector('.mdk-header-layout__content')
+  const isSubLayout = !!document.querySelector('.mdk-drawer-layout__content .mdk-drawer-layout__content')
+
+  let container = 'body'
+  container = isDrawerLayout ? '.mdk-drawer-layout__content' : container
+  container = isHeaderLayout ? '.mdk-header-layout__content' : container
+  container = isSubLayout ? '.mdk-drawer-layout__content .mdk-drawer-layout__content' : container
+
   var popoverOptions = {
     trigger: 'click',
     html: true,
-    container: '.mdk-header-layout__content',
+    container,
     content: function () {
       return $(this).next('.popoverContainer').html()
     },
