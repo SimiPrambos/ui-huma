@@ -151,7 +151,7 @@ html.dark-mode {
     background-color: $dark-card-bg;
 
     @if $enable-card-shadow {
-      @include mdc-elevation(3, $dark-card-shadow-base-color, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(3, $dark-card-shadow-base-color, $shadow-opacity-boost);
     }
   }
 
@@ -171,12 +171,12 @@ html.dark-mode {
 
   .card--elevated {
     @include hover {
-      @include mdc-elevation(5, $dark-card-shadow-base-color, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(5, $dark-card-shadow-base-color, $shadow-opacity-boost);
     }
   }
 
   .card--raised {
-    @include mdc-elevation(10, $dark-card-shadow-base-color, $shadow-opacity-boost);
+    @include mdc-elevation-mixins.elevation(10, $dark-card-shadow-base-color, $shadow-opacity-boost);
   }
 
   .card--connect::after {
@@ -278,7 +278,7 @@ html.dark-mode {
   ///////////////////////////////
 
   .navbar-shadow {
-    @include mdc-elevation(10, #000, $shadow-opacity-boost);
+    @include mdc-elevation-mixins.elevation(10, #000, $shadow-opacity-boost);
   }
 
   ///////////////////////////////////////////////////
@@ -380,7 +380,7 @@ html.dark-mode {
   
   .list-group:not(.list-group-flush) {
     @if $enable-card-shadow {
-      @include mdc-elevation(1, $dark-card-shadow-base-color);
+      @include mdc-elevation-mixins.elevation(1, $dark-card-shadow-base-color);
     }
   }
 
@@ -425,11 +425,11 @@ html.dark-mode {
     .page-content {
       background-color: $dark-body-bg;
       @include media-breakpoint-up(lg) {
-        @include mdc-elevation(3, #000, $shadow-opacity-boost);
+        @include mdc-elevation-mixins.elevation(3, #000, $shadow-opacity-boost);
       }
     }
     #default-drawer .sidebar-brand {
-      @include mdc-elevation(3, #000, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(3, #000, $shadow-opacity-boost);
     }
     .page-separator__text {
       background-color: $dark-body-bg;

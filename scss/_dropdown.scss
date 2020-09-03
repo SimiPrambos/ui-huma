@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .dropdown-toggle:focus {
   outline: 0;
 }
@@ -14,7 +17,7 @@
 ///////////////////
 
 .dropdown-menu {
-  @include mdc-elevation(8, $dropdown-box-shadow-base-color, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(8, $dropdown-box-shadow-base-color, $shadow-opacity-boost);
   display: block;
   visibility: hidden;
   opacity: 0;

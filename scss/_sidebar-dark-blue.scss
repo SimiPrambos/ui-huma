@@ -1,6 +1,9 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .sidebar-dark-blue {
 
-  @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
 
   /////////////
   // general //

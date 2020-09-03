@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .layout-compact {
   .container-fluid {
     @include media-breakpoint-up(xl) {
@@ -88,7 +91,7 @@
     }
 
     .sidebar-secondary {
-      @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
     }
   }
 }

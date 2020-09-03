@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 /////////////
 // GENERAL //
 /////////////
@@ -11,7 +14,7 @@
   }
 
   &--shadow-show {
-    @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
+    @include mdc-elevation-mixins.elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
     border-color: transparent !important;
   }
 

@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .mdk-drawer[data-persistent].layout-mini__drawer,
 .layout-mini__drawer .mdk-drawer__content {
   width: $layout-mini-drawer-width;
@@ -11,7 +14,7 @@
 
 .layout-mini-secondary .sidebar-secondary,
 .layout-mini--open .sidebar-secondary {
-  @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
 }
 
 .layout-mini__drawer[data-position="right"] .sidebar-secondary {

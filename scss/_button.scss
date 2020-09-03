@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 ////////////
 // BUTTON //
 ////////////
@@ -9,7 +12,7 @@
   text-transform: $btn-text-transform;
 
   &--raised {
-    @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
+    @include mdc-elevation-mixins.elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
   }
 }
 

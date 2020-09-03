@@ -2,13 +2,16 @@
 // NAVBAR //
 ////////////
 
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .navbar {
   min-height: $navbar-height;
   padding-top: 0;
   padding-bottom: 0;
 }
 .navbar-shadow {
-  @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {

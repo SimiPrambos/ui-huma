@@ -1,5 +1,8 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .popover-lg {
-  @include mdc-elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(10, $shadow-baseline-color, $shadow-opacity-boost);
   border: none;
   .popover-body {
     padding: 1.5rem;

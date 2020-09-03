@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 @import 'corner-ribbon/sass/variables';
 
 @import './functions';
@@ -523,24 +526,6 @@ $page-num-border-color:             $border-color !default;
 $page-num-bg:                       $body-bg !default;
 $page-num-color:                    $headings-color !default;
 
-//////////////
-// DEFAULTS //
-//////////////
-
-// @material/elevation
-@import '@material/elevation/mixins';
-
-// Bootstrap
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-
-// Sidebar style guide (default)
-@import 'sidebar-style-guide/sass/variables';
-
-// MDK (default)
-@import 'material-design-kit/src/variables';
-
 $drawer-layout-container-max-widths: (
   md: 768px,
   lg: 960px
@@ -553,4 +538,19 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px,
   xxl: 1366px
-);
+) !default;
+
+//////////////
+// DEFAULTS //
+//////////////
+
+// Bootstrap
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+// Sidebar style guide (default)
+@import 'sidebar-style-guide/sass/variables';
+
+// MDK (default)
+@import 'material-design-kit/src/variables';

@@ -1,3 +1,8 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+@use '@material/elevation/variables' as mdc-elevation-variables;
+@use '@material/elevation/functions' as mdc-elevation-functions;
+
 //////////
 // CARD //
 //////////
@@ -9,20 +14,20 @@
 
 .card {
   @if $enable-card-shadow {
-    @include mdc-elevation(3, $card-shadow-base-color, $shadow-opacity-boost);
+    @include mdc-elevation-mixins.elevation(3, $card-shadow-base-color, $shadow-opacity-boost);
   }
 
-  transition: mdc-elevation-transition-value();
-  will-change: $mdc-elevation-property;
+  transition: mdc-elevation-functions.transition-value();
+  will-change: mdc-elevation-variables.$property;
 
   &--elevated {
     @include hover {
-      @include mdc-elevation(5, $card-shadow-base-color, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(5, $card-shadow-base-color, $shadow-opacity-boost);
     }
   }
 
   &--raised {
-    @include mdc-elevation(10, $card-shadow-base-color, $shadow-opacity-boost);
+    @include mdc-elevation-mixins.elevation(10, $card-shadow-base-color, $shadow-opacity-boost);
   }
 
   &--scaled {
@@ -54,7 +59,7 @@
 ////////////////
 
 .card.card-flush {
-  #{$mdc-elevation-property}: none;
+  #{mdc-elevation-variables.$property}: none;
   border: none;
   &,
   .card-img,
@@ -64,7 +69,7 @@
 }
 
 .card.card-flush-y {
-  #{$mdc-elevation-property}: none;
+  #{mdc-elevation-variables.$property}: none;
   border-left: none;
   border-right: none;
   border-radius: 0;
@@ -139,6 +144,7 @@
   flex-flow: row wrap;
   &__col {
     display: flex;
+    min-width: 0;
   }
   &__card {
     flex: 1 0 0;
@@ -150,7 +156,7 @@
 ////////////////////////////////////
 
 .card-group-flush > .card {
-  #{$mdc-elevation-property}: none;
+  #{mdc-elevation-variables.$property}: none;
   &,
   .card-img,
   .card-img-top {

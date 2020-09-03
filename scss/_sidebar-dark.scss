@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .sidebar-dark .sidebar-submenu {
   .sidebar-menu-text {
     border-left: 1px solid $ssm-dark-item-border-color;
@@ -17,7 +20,7 @@
 }
 
 .sidebar-dark {
-  @include mdc-elevation(3, #000, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(3, #000, $shadow-opacity-boost);
   .text-100 {
     color: $sidebar-dark-text-color !important;
   }

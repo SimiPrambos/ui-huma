@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .layout-boxed {
   @include media-breakpoint-up(lg) {
     > .mdk-drawer-layout {
@@ -6,7 +9,7 @@
   }
   .page-content {
     @include media-breakpoint-up(lg) {
-      @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
       margin: 0 1rem 0 0;
       border-radius: 10px;
     }
@@ -38,7 +41,7 @@
     }
 
     .sidebar-brand {
-      @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+      @include mdc-elevation-mixins.elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
       margin-bottom: 2rem;
       height: $navbar-height;
       flex-direction: row;

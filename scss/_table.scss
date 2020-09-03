@@ -1,3 +1,6 @@
+// @material/elevation
+@use '@material/elevation/mixins' as mdc-elevation-mixins;
+
 .table {
   thead th,
   tbody td { 
@@ -36,7 +39,7 @@
 }
 
 .table--elevated {
-  @include mdc-elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
+  @include mdc-elevation-mixins.elevation(3, $shadow-baseline-color, $shadow-opacity-boost);
 }
 
 .table-flush {
